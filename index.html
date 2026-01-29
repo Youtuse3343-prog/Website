@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BorderCity DIGITAL | Elite Web & Social Media Solutions</title>
+    <title>BorderCity Digital | Web Design, SEO & Market Management</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -711,56 +711,6 @@
         }
 
         /* Pricing Section */
-        .pricing-toggle-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin: 50px 0 80px;
-        }
-
-        .toggle-switch {
-            position: relative;
-            width: 80px;
-            height: 40px;
-        }
-
-        .toggle-checkbox {
-            display: none;
-        }
-
-        .toggle-label {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--bg-tertiary);
-            border-radius: var(--border-radius-full);
-            cursor: pointer;
-            transition: all var(--transition-normal);
-        }
-
-        .toggle-label:after {
-            content: '';
-            position: absolute;
-            top: 4px;
-            left: 4px;
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 50%;
-            transition: all var(--transition-normal);
-        }
-
-        .toggle-checkbox:checked + .toggle-label {
-            background: rgba(99, 102, 241, 0.2);
-        }
-
-        .toggle-checkbox:checked + .toggle-label:after {
-            transform: translateX(40px);
-        }
-
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -811,7 +761,7 @@
         }
 
         .pricing-price {
-            font-size: 3.5rem;
+            font-size: 2.4rem;
             font-weight: 800;
             color: var(--text-primary);
             margin: 20px 0;
@@ -1212,13 +1162,13 @@
                 gap: 30px;
             }
 
-            .pricing-toggle-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-
             .contact-form {
                 padding: 30px;
+            }
+
+            .portfolio-overlay {
+                opacity: 1;
+                background: linear-gradient(180deg, rgba(10, 10, 15, 0.35) 0%, rgba(10, 10, 15, 0.95) 100%);
             }
         }
 
@@ -1305,10 +1255,13 @@
             <div class="hero-content fade-in-up">
                 <div class="hero-subtitle">
                     <i class="fas fa-star"></i>
-                    Premium Digital Agency Since 2015
+                    Windsor-Based Web & SEO Studio for Service Businesses
                 </div>
-                <h1>Transform Your Digital Presence with Elite Web Solutions</h1>
-                <p class="hero-description">BorderCity DIGITAL delivers cutting-edge web development, strategic social media management, and comprehensive digital solutions that drive measurable business growth. We partner with ambitious brands to create exceptional digital experiences.</p>
+                <h1>Websites, SEO, and Market Management Built to Bring You More Leads</h1>
+                <p class="hero-description">
+                    BorderCity Digital designs and manages fast, clear, and conversion-focused websites for service businesses. 
+                    We combine modern web design, local SEO, and ongoing market management so your business looks sharp online and is easier to find.
+                </p>
                 <div class="hero-cta">
                     <a href="#contact" class="btn btn-primary">
                         <i class="fas fa-rocket"></i>
@@ -1316,26 +1269,26 @@
                     </a>
                     <a href="#portfolio" class="btn btn-outline">
                         <i class="fas fa-eye"></i>
-                        View Our Work
+                        View Recent Work Examples
                     </a>
                 </div>
                 
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <span class="stat-number" data-count="285">0</span>
-                        <span class="stat-label">Projects Delivered</span>
+                        <span class="stat-number" data-count="12">0</span>
+                        <span class="stat-label">PROJECTS IN PORTFOLIO</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number" data-count="99">0</span>
-                        <span class="stat-label">Client Satisfaction</span>
+                        <span class="stat-number" data-count="5">0</span>
+                        <span class="stat-label">YEARS EXPERIENCE</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number" data-count="47">0</span>
-                        <span class="stat-label">Team Experts</span>
+                        <span class="stat-number" data-count="3">0</span>
+                        <span class="stat-label">CORE SERVICE AREAS</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number" data-count="120">0</span>
-                        <span class="stat-label">Happy Clients</span>
+                        <span class="stat-number" data-count="24">0</span>
+                        <span class="stat-label">HOUR RESPONSE WINDOW</span>
                     </div>
                 </div>
             </div>
@@ -1346,8 +1299,8 @@
     <section class="section-padding" id="services">
         <div class="container">
             <div class="services-header text-center">
-                <h2 class="section-title-center">Comprehensive Digital Services</h2>
-                <p>We provide end-to-end digital solutions that drive growth and elevate your brand in the competitive digital landscape.</p>
+                <h2 class="section-title-center">Services Built Around What Businesses Actually Need</h2>
+                <p>We focus on three things: a clear website, being found when people search, and keeping your online presence consistent and up to date.</p>
             </div>
             
             <div class="services-grid">
@@ -1355,45 +1308,45 @@
                     <div class="service-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h3>Web Development</h3>
-                    <p>Custom, responsive websites and web applications built with modern technologies and optimized for performance and conversion.</p>
+                    <h3>Website Design & Creation</h3>
+                    <p>Conversion-focused websites for service businesses that need to look credible, load fast, and make it easy for customers to take the next step.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Custom Web Development</li>
-                        <li><i class="fas fa-check"></i> E-Commerce Solutions</li>
-                        <li><i class="fas fa-check"></i> Progressive Web Apps</li>
-                        <li><i class="fas fa-check"></i> API Integration</li>
+                        <li><i class="fas fa-check"></i> Custom, mobile-first website design</li>
+                        <li><i class="fas fa-check"></i> Clear service and contact structure</li>
+                        <li><i class="fas fa-check"></i> Fast-loading pages and clean code</li>
+                        <li><i class="fas fa-check"></i> Built to support local SEO and lead generation</li>
                     </ul>
-                    <a href="#contact" class="btn btn-outline service-cta">Discuss Project</a>
+                    <a href="#contact" class="btn btn-outline service-cta">Discuss Your Website</a>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-hashtag"></i>
+                        <i class="fas fa-magnifying-glass-chart"></i>
                     </div>
-                    <h3>Social Media Management</h3>
-                    <p>Strategic social media campaigns that build brand awareness, engage audiences, and drive measurable business results.</p>
+                    <h3>SEO & Local Visibility</h3>
+                    <p>Make it easier for people to find you when they search on Google. We focus on local SEO and the basics that actually move the needle.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Social Media Strategy</li>
-                        <li><i class="fas fa-check"></i> Content Creation & Scheduling</li>
-                        <li><i class="fas fa-check"></i> Community Management</li>
-                        <li><i class="fas fa-check"></i> Performance Analytics</li>
+                        <li><i class="fas fa-check"></i> On-page SEO for key pages</li>
+                        <li><i class="fas fa-check"></i> Google Business Profile optimization</li>
+                        <li><i class="fas fa-check"></i> Local keyword and service area structure</li>
+                        <li><i class="fas fa-check"></i> Technical and performance clean-up</li>
                     </ul>
-                    <a href="#contact" class="btn btn-outline service-cta">Boost Social Presence</a>
+                    <a href="#contact" class="btn btn-outline service-cta">Talk SEO & Traffic</a>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-sync-alt"></i>
                     </div>
-                    <h3>Website Maintenance</h3>
-                    <p>Comprehensive maintenance plans to keep your website secure, updated, and performing at its best at all times.</p>
+                    <h3>Market Management</h3>
+                    <p>Ongoing support to keep your website, profiles, and core online presence aligned, updated, and working properly.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Security Updates & Monitoring</li>
-                        <li><i class="fas fa-check"></i> Performance Optimization</li>
-                        <li><i class="fas fa-check"></i> Regular Backups</li>
-                        <li><i class="fas fa-check"></i> 24/7 Technical Support</li>
+                        <li><i class="fas fa-check"></i> Regular website content and offer updates</li>
+                        <li><i class="fas fa-check"></i> Profile and listing consistency</li>
+                        <li><i class="fas fa-check"></i> Light reporting and check-ins</li>
+                        <li><i class="fas fa-check"></i> Support for campaigns and promotions</li>
                     </ul>
-                    <a href="#pricing" class="btn btn-outline service-cta">View Maintenance Plans</a>
+                    <a href="#pricing" class="btn btn-outline service-cta">View Ongoing Plans</a>
                 </div>
             </div>
         </div>
@@ -1403,8 +1356,8 @@
     <section class="tech-section section-padding-sm">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-title-center">Our Technology Stack</h2>
-                <p>We leverage cutting-edge technologies to build robust, scalable, and high-performance digital solutions.</p>
+                <h2 class="section-title-center">Modern Tools, Practical Implementation</h2>
+                <p>We use modern, proven tools to build and manage sites that are easy to update, fast to load, and ready to grow with your business.</p>
             </div>
             
             <div class="tech-grid">
@@ -1412,32 +1365,32 @@
                     <div class="tech-icon">
                         <i class="fab fa-react"></i>
                     </div>
-                    <h4>React & Next.js</h4>
-                    <p>Modern frontend frameworks for dynamic, high-performance applications</p>
+                    <h4>Modern Frontend</h4>
+                    <p>React and modern frontend frameworks for fast, responsive interfaces where they make sense.</p>
                 </div>
                 
                 <div class="tech-item">
                     <div class="tech-icon">
                         <i class="fab fa-node-js"></i>
                     </div>
-                    <h4>Node.js</h4>
-                    <p>Scalable backend solutions with real-time capabilities</p>
+                    <h4>Reliable Backends</h4>
+                    <p>Node.js and other proven tools for stable, secure, and scalable backends.</p>
                 </div>
                 
                 <div class="tech-item">
                     <div class="tech-icon">
                         <i class="fas fa-database"></i>
                     </div>
-                    <h4>Database Systems</h4>
-                    <p>PostgreSQL, MongoDB, and Firebase for data management</p>
+                    <h4>Data & Content</h4>
+                    <p>Structured data and content setups that keep your information organized and easy to manage.</p>
                 </div>
                 
                 <div class="tech-item">
                     <div class="tech-icon">
                         <i class="fab fa-shopify"></i>
                     </div>
-                    <h4>E-Commerce</h4>
-                    <p>Shopify, WooCommerce, and custom commerce solutions</p>
+                    <h4>E-Commerce Ready</h4>
+                    <p>Shopify, WooCommerce, and custom setups for service businesses that also sell online.</p>
                 </div>
             </div>
         </div>
@@ -1447,50 +1400,98 @@
     <section class="section-padding" id="portfolio">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-title-center">Our Portfolio</h2>
-                <p>Showcasing our expertise through successful projects and measurable results for clients across industries.</p>
+                <h2 class="section-title-center">Selected Work & Example Outcomes</h2>
+                <p>Here are representative examples of how we structure websites, improve visibility, and manage ongoing presence for service businesses.</p>
             </div>
             
             <div class="portfolio-filter">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="web">Web Development</button>
-                <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
-                <button class="filter-btn" data-filter="social">Social Media</button>
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Websites</button>
+                <button class="filter-btn" data-filter="seo">SEO</button>
+                <button class="filter-btn" data-filter="social">Market Management</button>
             </div>
             
             <div class="portfolio-grid">
-                <div class="portfolio-item" data-category="ecommerce">
-                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury E-Commerce" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3 style="color: white;">Luxury Fashion E-Commerce</h3>
-                        <p style="color: #cbd5e1;">Complete Shopify Plus solution increased online sales by 340% in 6 months</p>
-                        <div style="margin-top: 20px; display: flex; gap: 10px;">
-                            <span style="background: rgba(99, 102, 241, 0.2); color: var(--primary-light); padding: 5px 12px; border-radius: 20px; font-size: 0.9rem;">E-Commerce</span>
-                            <span style="background: rgba(245, 158, 11, 0.2); color: var(--accent-light); padding: 5px 12px; border-radius: 20px; font-size: 0.9rem;">Shopify Plus</span>
-                        </div>
-                    </div>
-                </div>
-                
                 <div class="portfolio-item" data-category="web">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="SaaS Platform" class="portfolio-img">
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80" alt="Service Business Website" class="portfolio-img">
                     <div class="portfolio-overlay">
-                        <h3 style="color: white;">SaaS Business Platform</h3>
-                        <p style="color: #cbd5e1;">Custom React application with real-time analytics and collaboration features</p>
-                        <div style="margin-top: 20px; display: flex; gap: 10px;">
-                            <span style="background: rgba(99, 102, 241, 0.2); color: var(--primary-light); padding: 5px 12px; border-radius: 20px; font-size: 0.9rem;">Web App</span>
-                            <span style="background: rgba(245, 158, 11, 0.2); color: var(--accent-light); padding: 5px 12px; border-radius: 20px; font-size: 0.9rem;">React</span>
+                        <h3 style="color: white;">Service Business Website Redesign</h3>
+                        <p style="color: #cbd5e1;">
+                            Modern, mobile-first website with a clear services layout, simple navigation, and focused lead capture for quote requests.
+                        </p>
+                        <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span style="background: rgba(99, 102, 241, 0.2); color: var(--primary-light); padding: 5px 12px; border-radius: 20px; font-size: 0.9rem;">Website</span>
+                            <span style="background: rgba(245, 158, 11, 0.2); color: var(--accent-light); padding: 5px 12px; border-radius: 20px; font-size: 0.9rem;">Lead Generation</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="portfolio-item" data-category="social">
-                    <img src="https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Social Media Campaign" class="portfolio-img">
+
+                <div class="portfolio-item" data-category="web">
+                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=80" alt="Landing Page Build" class="portfolio-img">
                     <div class="portfolio-overlay">
-                        <h3 style="color: white;">Fitness Brand Social Campaign</h3>
-                        <p style="color: #cbd5e1;">Drove 500% increase in engagement and 200% follower growth in 3 months</p>
-                        <div style="margin-top: 20px; display: flex; gap: 10px;">
-                            <span style="background: rgba(99, 102, 241, 0.2); color: var(--primary-light); padding: 5px 12px; border-radius: 20px; font-size: 0.9rem;">Social Media</span>
-                            <span style="background: rgba(245, 158, 11, 0.2); color: var(--accent-light); padding: 5px 12px; border-radius: 20px; font-size: 0.9rem;">Instagram</span>
+                        <h3 style="color: white;">High-Converting Landing Page</h3>
+                        <p style="color: #cbd5e1;">
+                            Single-purpose landing page crafted for campaigns and ads, optimized for calls and form submissions instead of distractions.
+                        </p>
+                        <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span style="background: rgba(99, 102, 241, 0.2); color: var(--primary-light); padding: 5px 12px; border-radius: 20px; font-size: 0.9rem;">Landing Page</span>
+                            <span style="background: rgba(245, 158, 11, 0.2); color: var(--accent-light); padding: 5px 12px; border-radius: 20px; font-size: 0.9rem;">Conversion Focused</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="seo">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Local SEO Optimization" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3 style="color: white;">Local SEO Foundation Setup</h3>
+                        <p style="color: #cbd5e1;">
+                            On-page improvements, better headings and copy, and a clearer service area structure to support local rankings.
+                        </p>
+                        <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span style="background: rgba(99, 102, 241, 0.2); color: var(--primary-light); padding: 5px 12px; border-radius: 20px; font-size: 0.9rem;">SEO</span>
+                            <span style="background: rgba(245, 158, 11, 0.2); color: var(--accent-light); padding: 5px 12px; border-radius: 20px; font-size: 0.9rem;">On-Page</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="seo">
+                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1200&q=80" alt="Google Business Profile" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3 style="color: white;">Google Business Profile Optimization</h3>
+                        <p style="color: #cbd5e1;">
+                            Cleaned-up listing, better categories and services, and regular posting to support local search and trust.
+                        </p>
+                        <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span style="background: rgba(99, 102, 241, 0.2); color: var(--primary-light); padding: 5px 12px; border-radius: 20px; font-size: 0.9rem;">SEO</span>
+                            <span style="background: rgba(245, 158, 11, 0.2); color: var(--accent-light); padding: 5px 12px; border-radius: 20px; font-size: 0.9rem;">Local</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="social">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=80" alt="Content System" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3 style="color: white;">Content & Update System</h3>
+                        <p style="color: #cbd5e1;">
+                            Monthly updates to services, offers, and key messages so the website and profiles stay current and aligned.
+                        </p>
+                        <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span style="background: rgba(99, 102, 241, 0.2); color: var(--primary-light); padding: 5px 12px; border-radius: 20px; font-size: 0.9rem;">Management</span>
+                            <span style="background: rgba(245, 158, 11, 0.2); color: var(--accent-light); padding: 5px 12px; border-radius: 20px; font-size: 0.9rem;">Content</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="social">
+                    <img src="https://images.unsplash.com/photo-1611605698335-8b1569810432?auto=format&fit=crop&w=1200&q=80" alt="Ongoing Online Presence" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3 style="color: white;">Ongoing Online Presence Management</h3>
+                        <p style="color: #cbd5e1;">
+                            Regular checks, updates, and light reporting across the main channels so nothing goes stale or out of sync.
+                        </p>
+                        <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span style="background: rgba(99, 102, 241, 0.2); color: var(--primary-light); padding: 5px 12px; border-radius: 20px; font-size: 0.9rem;">Management</span>
+                            <span style="background: rgba(245, 158, 11, 0.2); color: var(--accent-light); padding: 5px 12px; border-radius: 20px; font-size: 0.9rem;">Maintenance</span>
                         </div>
                     </div>
                 </div>
@@ -1502,44 +1503,44 @@
     <section class="section-padding" id="process" style="background: var(--bg-secondary);">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-title-center">Our Proven Process</h2>
-                <p>A systematic, transparent approach that ensures quality, efficiency, and exceptional results for every project.</p>
+                <h2 class="section-title-center">A Simple, Clear Process</h2>
+                <p>From first call to launch and ongoing support, we keep the process straightforward so you always know what’s happening next.</p>
             </div>
             
             <div class="process-grid">
                 <div class="process-card">
                     <div class="process-number">01</div>
-                    <h3>Discovery & Strategy</h3>
-                    <p>We begin with comprehensive research into your business, target audience, and competitors to develop a data-driven strategy.</p>
+                    <h3>Discovery & Plan</h3>
+                    <p>We learn about your business, services, and customers, then outline what your website and online presence actually need to do.</p>
                     <ul style="margin-top: 20px; color: var(--text-tertiary);">
-                        <li>Business Goals Analysis</li>
-                        <li>Competitor Research</li>
-                        <li>Target Audience Profiling</li>
-                        <li>Technical Requirements</li>
+                        <li>Short discovery call</li>
+                        <li>Goals and priorities</li>
+                        <li>Site and SEO audit (if needed)</li>
+                        <li>Clear proposal and timeline</li>
                     </ul>
                 </div>
                 
                 <div class="process-card">
                     <div class="process-number">02</div>
-                    <h3>Design & Development</h3>
-                    <p>Our team creates user-centered designs and develops robust solutions using agile methodologies with regular progress updates.</p>
+                    <h3>Build & Improve</h3>
+                    <p>We design and build your website, set up the SEO basics, and get your core presence aligned across main platforms.</p>
                     <ul style="margin-top: 20px; color: var(--text-tertiary);">
-                        <li>UI/UX Design</li>
-                        <li>Agile Development</li>
-                        <li>Quality Assurance</li>
-                        <li>Client Review Cycles</li>
+                        <li>Wireframe and layout</li>
+                        <li>Design and development</li>
+                        <li>SEO and performance passes</li>
+                        <li>Reviews and refinements</li>
                     </ul>
                 </div>
                 
                 <div class="process-card">
                     <div class="process-number">03</div>
-                    <h3>Launch & Growth</h3>
-                    <p>We deploy your solution and provide ongoing support, monitoring, and optimization to ensure continuous growth and success.</p>
+                    <h3>Launch & Ongoing Support</h3>
+                    <p>Once live, we monitor performance and keep things updated so your presence keeps working for you instead of going stale.</p>
                     <ul style="margin-top: 20px; color: var(--text-tertiary);">
-                        <li>Deployment & Launch</li>
-                        <li>Performance Monitoring</li>
-                        <li>Ongoing Optimization</li>
-                        <li>Growth Strategy</li>
+                        <li>Launch and basic monitoring</li>
+                        <li>Optional SEO and management plans</li>
+                        <li>Regular updates and support</li>
+                        <li>Simple reporting and next steps</li>
                     </ul>
                 </div>
             </div>
@@ -1551,32 +1552,45 @@
         <div class="container">
             <div class="text-center">
                 <h2 class="section-title-center">Client Success Stories</h2>
-                <p>Hear from businesses that have transformed their digital presence with BorderCity DIGITAL.</p>
+                <p>Here’s how businesses like yours have used BorderCity Digital to clean up their online presence and make it easier for customers to reach them.</p>
             </div>
             
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        "BorderCity DIGITAL transformed our e-commerce platform, resulting in a 340% increase in online sales. Their team's expertise and attention to detail were exceptional throughout the entire process."
+                        "We had an older site that technically worked but felt clunky and confusing, especially on phones. BorderCity Digital rebuilt the layout with clearer messaging and calls-to-action. The new site feels modern and our quote requests are noticeably easier for customers to complete."
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-avatar">SK</div>
+                        <div class="author-avatar">JD</div>
                         <div>
-                            <h4 style="margin: 0; color: var(--text-primary);">Sarah Johnson</h4>
-                            <p style="color: var(--text-tertiary); margin: 0;">CEO, Luxe Fashion Co.</p>
+                            <h4 style="margin: 0; color: var(--text-primary);">Jason DeMarco</h4>
+                            <p style="color: var(--text-tertiary); margin: 0;">Owner, Riverside Home Services (Windsor)</p>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        "The social media campaign developed by BorderCity exceeded all our expectations. They brought strategic thinking and creative execution that significantly grew our brand presence."
+                        "We knew we needed help with Google but didn’t have time to figure out what to do first. They cleaned up our pages, organized our services, and fixed our Google Business Profile. The explanations were simple, the updates were regular, and we could actually see where the improvements were coming from."
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-avatar">MR</div>
+                        <div class="author-avatar">AP</div>
                         <div>
-                            <h4 style="margin: 0; color: var(--text-primary);">Michael Rodriguez</h4>
-                            <p style="color: var(--text-tertiary); margin: 0;">Marketing Director, FitLife</p>
+                            <h4 style="margin: 0; color: var(--text-primary);">Ayesha Patel</h4>
+                            <p style="color: var(--text-tertiary); margin: 0;">Manager, Walkerville Wellness Clinic (Windsor)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "We wanted someone to quietly manage the website and online details in the background so we could focus on running the business. BorderCity Digital keeps our content and offers current, checks things regularly, and lets us know when something important needs a decision. It’s been a big relief not having to chase this ourselves."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SC</div>
+                        <div>
+                            <h4 style="margin: 0; color: var(--text-primary);">Samantha Crowley</h4>
+                            <p style="color: var(--text-tertiary); margin: 0;">Operations, South Windsor Cleaning Co. (Windsor)</p>
                         </div>
                     </div>
                 </div>
@@ -1588,66 +1602,63 @@
     <section class="section-padding" id="pricing" style="background: var(--bg-secondary);">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-title-center">Flexible Pricing Plans</h2>
-                <p>Choose the plan that best fits your business needs. All plans include our commitment to quality and results.</p>
-            </div>
-            
-            <div class="pricing-toggle-container">
-                <span style="color: var(--text-secondary); font-weight: 500; font-size: 1.1rem;">Monthly Billing</span>
-                <div class="toggle-switch">
-                    <input type="checkbox" id="pricing-toggle" class="toggle-checkbox">
-                    <label for="pricing-toggle" class="toggle-label"></label>
-                </div>
-                <span style="color: var(--text-secondary); font-weight: 500; font-size: 1.1rem;">Annual Billing <span style="color: var(--success);">Save 20%</span></span>
+                <h2 class="section-title-center">Straightforward Website & SEO Packages</h2>
+                <p>These starting points give you a realistic idea of investment. Every project gets scoped properly so you only pay for what you actually need.</p>
             </div>
             
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3 class="pricing-name">Starter</h3>
-                        <div class="pricing-price">$99<span class="pricing-period">/month</span></div>
-                        <p style="color: var(--text-tertiary);">Perfect for small businesses starting their digital journey</p>
+                        <h3 class="pricing-name">Website Essentials</h3>
+                        <div class="pricing-price">Starting at $1,500</div>
+                        <p style="color: var(--text-tertiary);">
+                            Ideal for businesses that need a clean, modern website with clear services and a simple way for customers to contact you.
+                        </p>
                     </div>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Basic Website Maintenance</li>
-                        <li><i class="fas fa-check"></i> Monthly Security Updates</li>
-                        <li><i class="fas fa-check"></i> 5 Content Updates/Month</li>
-                        <li><i class="fas fa-check"></i> Uptime Monitoring</li>
-                        <li><i class="fas fa-check"></i> Email Support</li>
+                        <li><i class="fas fa-check"></i> Up to 3 core pages (Home, Services, Contact)</li>
+                        <li><i class="fas fa-check"></i> Mobile-first, conversion-aware design</li>
+                        <li><i class="fas fa-check"></i> Basic on-page SEO structure</li>
+                        <li><i class="fas fa-check"></i> Contact form and call-to-action setup</li>
+                        <li><i class="fas fa-check"></i> Launch support and basic training</li>
                     </ul>
-                    <a href="#contact" class="btn btn-outline" style="width: 100%; margin-top: 30px;">Get Started</a>
+                    <a href="#contact" class="btn btn-outline" style="width: 100%; margin-top: 30px;">Talk About a Website</a>
                 </div>
                 
                 <div class="pricing-card popular">
                     <div class="pricing-header">
-                        <h3 class="pricing-name">Professional</h3>
-                        <div class="pricing-price">$499<span class="pricing-period">/month</span></div>
-                        <p style="color: var(--text-tertiary);">Our most popular package for growing businesses</p>
+                        <h3 class="pricing-name">Growth Website</h3>
+                        <div class="pricing-price">Starting at $2,500</div>
+                        <p style="color: var(--text-tertiary);">
+                            Best for growing service businesses that want a site built around leads, local search, and clear service offers.
+                        </p>
                     </div>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Advanced Website Maintenance</li>
-                        <li><i class="fas fa-check"></i> Weekly Security Updates</li>
-                        <li><i class="fas fa-check"></i> 15 Content Updates/Month</li>
-                        <li><i class="fas fa-check"></i> Performance Optimization</li>
-                        <li><i class="fas fa-check"></i> Social Media Management (2 platforms)</li>
+                        <li><i class="fas fa-check"></i> Multi-page site with detailed service sections</li>
+                        <li><i class="fas fa-check"></i> Strong focus on calls, forms, and inquiries</li>
+                        <li><i class="fas fa-check"></i> Local SEO structure and content guidance</li>
+                        <li><i class="fas fa-check"></i> Performance and speed optimization</li>
+                        <li><i class="fas fa-check"></i> Optional add-ons for copywriting and visuals</li>
                     </ul>
-                    <a href="#contact" class="btn btn-primary" style="width: 100%; margin-top: 30px;">Choose Plan</a>
+                    <a href="#contact" class="btn btn-primary" style="width: 100%; margin-top: 30px;">Plan a Growth Build</a>
                 </div>
                 
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3 class="pricing-name">Enterprise</h3>
-                        <div class="pricing-price">$999<span class="pricing-period">/month</span></div>
-                        <p style="color: var(--text-tertiary);">Complete digital solution for established businesses</p>
+                        <h3 class="pricing-name">SEO & Market Management</h3>
+                        <div class="pricing-price">From $500 / month</div>
+                        <p style="color: var(--text-tertiary);">
+                            Ongoing support to keep your website optimized, your profiles in sync, and your presence tuned to bring in the right visitors.
+                        </p>
                     </div>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Premium Website Maintenance</li>
-                        <li><i class="fas fa-check"></i> 24/7 Security Monitoring</li>
-                        <li><i class="fas fa-check"></i> Unlimited Content Updates</li>
-                        <li><i class="fas fa-check"></i> Advanced Analytics Dashboard</li>
-                        <li><i class="fas fa-check"></i> Full Social Media Management</li>
+                        <li><i class="fas fa-check"></i> Monthly on-page and content adjustments</li>
+                        <li><i class="fas fa-check"></i> Google Business Profile updates</li>
+                        <li><i class="fas fa-check"></i> Checks for issues, broken links, and pages</li>
+                        <li><i class="fas fa-check"></i> Light reporting and recommended next steps</li>
+                        <li><i class="fas fa-check"></i> Priority support for updates and questions</li>
                     </ul>
-                    <a href="#contact" class="btn btn-outline" style="width: 100%; margin-top: 30px;">Contact Sales</a>
+                    <a href="#contact" class="btn btn-outline" style="width: 100%; margin-top: 30px;">Discuss Ongoing Support</a>
                 </div>
             </div>
         </div>
@@ -1658,43 +1669,43 @@
         <div class="container">
             <div class="text-center">
                 <h2 class="section-title-center">Frequently Asked Questions</h2>
-                <p>Find answers to common questions about our services, process, and pricing.</p>
+                <p>If you are wondering how this works in practice, these are some of the questions that come up most often.</p>
             </div>
             
             <div class="faq-grid">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h4 style="margin: 0;">What's included in your website maintenance service?</h4>
+                        <h4 style="margin: 0;">How long does a typical website project take?</h4>
                         <div class="faq-toggle">
                             <i class="fas fa-plus"></i>
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p>Our comprehensive maintenance service includes regular security updates, performance optimization, content updates, backup management, uptime monitoring, and technical support. We ensure your website remains secure, fast, and functional at all times, with detailed monthly reports on performance and improvements.</p>
+                        <p>A standard website project usually takes 4–6 weeks from kickoff to launch, depending on how many pages you need and how quickly content is provided. More complex builds or projects that require new copy and visuals can take a bit longer. We outline a timeline clearly before we start.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h4 style="margin: 0;">How long does a typical web development project take?</h4>
+                        <h4 style="margin: 0;">Do you only work with businesses in Windsor?</h4>
                         <div class="faq-toggle">
                             <i class="fas fa-plus"></i>
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p>Project timelines vary based on complexity and scope. A standard website typically takes 4-6 weeks, while complex web applications can take 8-12 weeks. We provide a detailed timeline during the discovery phase and maintain transparent communication throughout the project with regular progress updates.</p>
+                        <p>No. We are based in Windsor, Ontario and understand the local market well, but we also work remotely with service businesses across Canada and beyond. Most projects are done fully online, with calls and screen shares where needed.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h4 style="margin: 0;">Do you offer custom solutions outside your standard packages?</h4>
+                        <h4 style="margin: 0;">What if I already have a website?</h4>
                         <div class="faq-toggle">
                             <i class="fas fa-plus"></i>
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p>Absolutely. We specialize in custom digital solutions tailored to your specific business needs. Whether you need a unique web application, specialized integration, or a completely custom digital strategy, our team can design and implement a solution that aligns with your goals and budget.</p>
+                        <p>That’s common. In many cases we can audit what you already have, keep what’s working, and redesign or restructure what isn’t. Sometimes it makes sense to rebuild; other times a focused refresh and SEO cleanup is enough. We’ll give you a straightforward recommendation.</p>
                     </div>
                 </div>
             </div>
@@ -1706,13 +1717,13 @@
         <div class="container">
             <div class="text-center">
                 <h2 class="section-title-center">Start Your Project</h2>
-                <p>Ready to transform your digital presence? Contact us for a free strategy consultation.</p>
+                <p>Ready to explore a new website, SEO work, or ongoing market management? Send a quick overview and we’ll follow up within one business day.</p>
             </div>
             
             <div class="contact-grid">
                 <div class="contact-info">
                     <h3>Get In Touch</h3>
-                    <p>We're here to help you achieve your digital goals. Reach out to discuss your project or schedule a consultation.</p>
+                    <p>Share a bit about your business and what you’re trying to improve. We’ll let you know if we’re a good fit and what a realistic next step looks like.</p>
                     
                     <div class="contact-item">
                         <div class="contact-icon">
@@ -1721,7 +1732,7 @@
                         <div>
                             <h4>Phone</h4>
                             <p>+1 (226) 123-4567</p>
-                            <p style="color: var(--text-tertiary); font-size: 0.9rem;">Mon-Fri, 9AM-6PM EST</p>
+                            <p style="color: var(--text-tertiary); font-size: 0.9rem;">Mon–Fri, 9AM–6PM EST</p>
                         </div>
                     </div>
                     
@@ -1731,19 +1742,17 @@
                         </div>
                         <div>
                             <h4>Email</h4>
-                            <p>hello@bordercitydigital.com</p>
-                            <p style="color: var(--text-tertiary); font-size: 0.9rem;">Response within 24 hours</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h4>Location</h4>
-                            <p>123 Digital Avenue</p>
-                            <p style="color: var(--text-tertiary); font-size: 0.9rem;">Toronto, ON M5V 2T6</p>
+                            <p style="margin-bottom: 8px;">
+                                <a href="mailto:Sales@bordercitydigital.com" style="color: var(--text-secondary); text-decoration: none;">
+                                    Sales@bordercitydigital.com
+                                </a>
+                            </p>
+                            <p style="margin-bottom: 4px;">
+                                <a href="mailto:Inquiries@bordercitydigital.com" style="color: var(--text-secondary); text-decoration: none;">
+                                    Inquiries@bordercitydigital.com
+                                </a>
+                            </p>
+                            <p style="color: var(--text-tertiary); font-size: 0.9rem; margin: 0;">Response within 24 hours</p>
                         </div>
                     </div>
                     
@@ -1777,16 +1786,16 @@
                             <label for="service" class="form-label">Service Interested In</label>
                             <select id="service" class="form-input">
                                 <option value="">Select a service</option>
-                                <option value="web">Web Development</option>
-                                <option value="social">Social Media Management</option>
-                                <option value="maintenance">Website Maintenance</option>
-                                <option value="strategy">Digital Strategy</option>
+                                <option value="web">Website Design & Creation</option>
+                                <option value="seo">SEO & Local Visibility</option>
+                                <option value="management">Market Management</option>
+                                <option value="unsure">Not sure yet – need guidance</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
                             <label for="message" class="form-label">Project Details</label>
-                            <textarea id="message" class="form-textarea" placeholder="Tell us about your project"></textarea>
+                            <textarea id="message" class="form-textarea" placeholder="Tell us about your business, what you sell, and what you want to improve."></textarea>
                         </div>
                         
                         <button type="submit" class="btn btn-primary" style="width: 100%;">
@@ -1805,7 +1814,7 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="footer-logo">BorderCity<span>DIGITAL</span></div>
-                    <p>Transforming businesses through intelligent digital solutions since 2015. We deliver exceptional results with a focus on innovation and client success.</p>
+                    <p>Helping service businesses in Windsor and beyond build clearer websites, stronger visibility, and a more consistent online presence.</p>
                     <div class="newsletter-form">
                         <input type="email" class="newsletter-input" placeholder="Your Email">
                         <button type="submit" class="btn btn-primary">Subscribe</button>
@@ -1815,11 +1824,11 @@
                 <div class="footer-col">
                     <h4 style="color: var(--text-primary); margin-bottom: 20px;">Services</h4>
                     <ul class="footer-links">
-                        <li><a href="#services">Custom Web Development</a></li>
-                        <li><a href="#services">E-Commerce Solutions</a></li>
-                        <li><a href="#services">Website Maintenance</a></li>
-                        <li><a href="#services">Social Media Management</a></li>
-                        <li><a href="#services">Digital Strategy Consulting</a></li>
+                        <li><a href="#services">Website Design & Creation</a></li>
+                        <li><a href="#services">SEO & Local Visibility</a></li>
+                        <li><a href="#services">Market Management</a></li>
+                        <li><a href="#pricing">Website Packages</a></li>
+                        <li><a href="#pricing">Ongoing Support</a></li>
                     </ul>
                 </div>
                 
@@ -1828,9 +1837,9 @@
                     <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#process">Our Process</a></li>
-                        <li><a href="#portfolio">Case Studies</a></li>
+                        <li><a href="#portfolio">Work Examples</a></li>
                         <li><a href="#contact">Contact</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Blog (Coming Soon)</a></li>
                     </ul>
                 </div>
                 
@@ -1846,7 +1855,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 BorderCity DIGITAL. All rights reserved. | <a href="#" style="color: var(--primary); text-decoration: none;">Privacy Policy</a></p>
+                <p>&copy; 2026 BorderCity Digital. All rights reserved. | <a href="#" style="color: var(--primary); text-decoration: none;">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
@@ -1986,37 +1995,17 @@
             });
         });
 
-        // Pricing Toggle
-        const pricingToggle = document.getElementById('pricing-toggle');
-        const pricingPrices = document.querySelectorAll('.pricing-price');
-        
-        pricingToggle.addEventListener('change', () => {
-            const prices = [99, 499, 999];
-            const yearlyPrices = prices.map(price => Math.round(price * 12 * 0.8));
-            
-            pricingPrices.forEach((priceEl, index) => {
-                if (pricingToggle.checked) {
-                    priceEl.innerHTML = `$${yearlyPrices[index]}<span class="pricing-period">/year</span>`;
-                } else {
-                    priceEl.innerHTML = `$${prices[index]}<span class="pricing-period">/month</span>`;
-                }
-            });
-        });
-
         // Form Submission
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Get form data
             const formData = new FormData(contactForm);
             const data = Object.fromEntries(formData);
             
-            // Show success message
             alert('Thank you for your message! We will get back to you within 24 hours.');
             contactForm.reset();
             
-            // In a real application, you would send this to a server
             console.log('Form submitted:', data);
         });
 
@@ -2031,7 +2020,7 @@
                 if (entry.isIntersecting) {
                     entry.target.classList.add('fade-in-up');
                     
-                    // Trigger counter animation when stats section is visible
+                    // Trigger counter animation when hero section is visible
                     if (entry.target.id === 'home' && !animated) {
                         setTimeout(animateCounter, 300);
                         animated = true;
@@ -2048,10 +2037,10 @@
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
+
+                e.preventDefault();
                 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
