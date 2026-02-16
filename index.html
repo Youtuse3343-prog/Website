@@ -1,797 +1,644 @@
-Absolutely. Below is your **full updated `index.html`** with:
-
-* Email changed to **[Inquire@bordercitydigital.com](mailto:Inquire@bordercitydigital.com)** everywhere it appears
-* A **mobile-first pass** to fix the phone layout:
-
-  * Better spacing + font scaling
-  * Cleaner hero layout on small screens
-  * Buttons stack properly (no awkward wrapping)
-  * Cards/grids become 1-column earlier
-  * Nav CTA/buttons don’t crush the header on mobile
-  * Proof bar and contact sections are cleaner on phones
-  * Reduced “tight” padding and improved readability
-
-Copy/paste this entire file into GitHub as `index.html`.
-
-```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BorderCity Digital | Windsor Web Design, SEO & Local Growth</title>
-  <meta name="description" content="BorderCity Digital builds fast, conversion-focused websites for Windsor–Essex businesses. Web design, local SEO, and ongoing management." />
-  <meta name="theme-color" content="#0b1020" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BorderCity Digital — Windsor Web Design & Marketing</title>
+  <meta name="description" content="BorderCity Digital is a Windsor, Ontario-based web design and digital marketing studio helping service businesses get more leads." />
   <style>
     :root{
-      --bg0:#060812;
-      --bg1:#0b1020;
-      --bg2:#0f1733;
-
-      --card:rgba(255,255,255,.06);
-      --card2:rgba(255,255,255,.08);
-      --border:rgba(148,163,184,.18);
-
-      --text:#e7eefc;
-      --muted:#aab8d6;
-      --muted2:#7f93bf;
-
-      --primary:#6d5efc;
-      --primary2:#4f46e5;
-      --accent:#f59e0b;
-      --good:#22c55e;
-
-      --shadow:0 18px 60px rgba(0,0,0,.45);
-      --shadow2:0 30px 90px rgba(0,0,0,.55);
-
-      --radius:16px;
-      --radius2:22px;
-      --radiusPill:999px;
-      --ease: cubic-bezier(.2,.8,.2,1);
-      --max:1180px;
+      --bg: #0b1220;
+      --bg2:#0f1a2f;
+      --card:#111b33;
+      --card2:#0f1830;
+      --text:#e9eefc;
+      --muted:#b7c0dd;
+      --line: rgba(233,238,252,.12);
+      --brand:#7c5cff;
+      --brand2:#22d3ee;
+      --good:#34d399;
+      --warn:#fbbf24;
+      --shadow: 0 16px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1140px;
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
     body{
       margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
       background:
-        radial-gradient(1100px 700px at 20% -10%, rgba(109,94,252,.28), transparent 55%),
-        radial-gradient(900px 650px at 90% 0%, rgba(245,158,11,.18), transparent 55%),
-        radial-gradient(700px 500px at 50% 105%, rgba(34,197,94,.12), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1) 40%, #050611);
-      overflow-x:hidden;
+        radial-gradient(1000px 600px at 15% -10%, rgba(124,92,255,.35), transparent 60%),
+        radial-gradient(900px 550px at 90% 5%, rgba(34,211,238,.20), transparent 55%),
+        radial-gradient(900px 700px at 55% 110%, rgba(52,211,153,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      line-height:1.55;
     }
 
-    img, svg { max-width: 100%; height: auto; }
-    a{color:inherit; text-decoration:none}
-    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
+    a{ color:inherit; text-decoration:none; }
+    .container{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
 
-    h1,h2,h3,h4{
-      font-family:"Space Grotesk", system-ui, sans-serif;
-      margin:0 0 .6rem 0;
-      letter-spacing:-.02em;
-    }
-    p{margin:.4rem 0 0 0; color:var(--muted); line-height:1.7}
-    .soft{color: var(--muted2)}
-
-    /* =========================
-       HEADER / NAV
-    ========================= */
-    header{
-      position:fixed; top:0; left:0; right:0;
-      height:74px;
-      z-index:999;
-      background: rgba(6,8,18,.72);
-      backdrop-filter: blur(16px);
-      border-bottom:1px solid rgba(148,163,184,.12);
+    /* Top bar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.65);
+      border-bottom: 1px solid var(--line);
     }
     .nav{
-      height:74px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
     }
-
     .brand{
       display:flex; align-items:center; gap:12px;
-      min-width: 220px;
-      flex: 0 0 auto;
+      font-weight:700; letter-spacing:.2px;
     }
-    .mark{
-      width:42px;height:42px;border-radius:14px;
-      background: radial-gradient(circle at 20% 20%, var(--accent), var(--primary));
-      box-shadow: 0 0 0 1px rgba(255,255,255,.06), 0 16px 40px rgba(0,0,0,.55);
-      display:flex;align-items:center;justify-content:center;
-      color:#090b14;
-      flex: 0 0 auto;
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background:
+        radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,.25), transparent 60%),
+        linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 10px 26px rgba(124,92,255,.25);
+      border:1px solid rgba(255,255,255,.18);
     }
-    .brand b{display:block; font-weight:800; font-size:1.05rem}
-    .brand small{display:block; color:var(--muted2); letter-spacing:.18em; text-transform:uppercase; font-size:.72rem; margin-top:2px}
+    .brand span small{ display:block; font-weight:600; color:var(--muted); letter-spacing:.3px; margin-top:-2px; }
 
-    nav.links{
-      display:flex; align-items:center; gap:22px;
+    .links{ display:flex; gap:18px; align-items:center; }
+    .links a{
+      color: var(--muted);
+      font-weight:600;
+      font-size:14px;
+      padding:10px 10px;
+      border-radius: 10px;
+      transition: .2s ease;
     }
-    nav.links a{
-      font-size:.92rem;
-      color:rgba(231,238,252,.78);
-      padding:10px 0;
-      position:relative;
-      white-space:nowrap;
-    }
-    nav.links a:after{
-      content:"";
-      position:absolute; left:0; bottom:6px;
-      width:0;height:2px;border-radius:99px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      transition: width .22s var(--ease);
-    }
-    nav.links a:hover{color:var(--text)}
-    nav.links a:hover:after{width:18px}
+    .links a:hover{ color: var(--text); background: rgba(233,238,252,.06); }
 
-    .ctaRow{
-      display:flex; align-items:center; gap:10px;
-      flex: 0 0 auto;
-    }
-    .pill{
-      font-size:.78rem;
-      padding:6px 10px;
-      border-radius:var(--radiusPill);
-      border:1px solid rgba(148,163,184,.22);
-      color:var(--muted2);
-      display:flex; align-items:center; gap:7px;
-      background: rgba(255,255,255,.03);
-      white-space: nowrap;
-    }
+    .ctaRow{ display:flex; gap:10px; align-items:center; }
     .btn{
-      border:0;
-      cursor:pointer;
-      border-radius: var(--radiusPill);
-      padding:12px 16px;
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius: 12px;
+      border:1px solid rgba(233,238,252,.16);
+      background: rgba(233,238,252,.06);
+      color: var(--text);
       font-weight:700;
-      font-size:.92rem;
-      display:inline-flex; align-items:center; gap:10px;
-      transition: transform .22s var(--ease), box-shadow .22s var(--ease), background .22s var(--ease), border-color .22s var(--ease);
+      font-size:14px;
+      cursor:pointer;
+      transition: .2s ease;
       white-space:nowrap;
     }
-    .btnPrimary{
-      background: linear-gradient(135deg, var(--primary), var(--primary2));
-      color:white;
-      box-shadow: 0 14px 45px rgba(109,94,252,.28);
+    .btn:hover{ transform: translateY(-1px); border-color: rgba(233,238,252,.22); background: rgba(233,238,252,.09); }
+    .btn.primary{
+      border:none;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 14px 30px rgba(124,92,255,.25);
     }
-    .btnPrimary:hover{transform: translateY(-1px); box-shadow: 0 20px 65px rgba(109,94,252,.36)}
-    .btnGhost{
-      background: rgba(255,255,255,.03);
-      color: rgba(231,238,252,.88);
-      border:1px solid rgba(148,163,184,.2);
-    }
-    .btnGhost:hover{border-color: rgba(109,94,252,.55); transform: translateY(-1px)}
-    .menuBtn{
-      display:none;
-      width:42px;height:42px;border-radius:999px;
-      border:1px solid rgba(148,163,184,.22);
-      background: rgba(255,255,255,.03);
-      color:var(--text);
-      align-items:center; justify-content:center;
-    }
+    .btn.primary:hover{ filter: brightness(1.05); }
 
-    /* Mobile menu */
-    .mobilePanel{
-      display:none;
-      position:fixed;
-      top:74px; left:0; right:0;
-      background: rgba(6,8,18,.92);
-      backdrop-filter: blur(16px);
-      border-bottom:1px solid rgba(148,163,184,.12);
-      padding:14px 20px 18px;
-      z-index: 998;
-    }
-    .mobilePanel a{
-      display:block;
-      padding:12px 0;
-      color:rgba(231,238,252,.86);
-      border-bottom:1px solid rgba(148,163,184,.10);
-    }
-    .mobilePanel a:last-child{border-bottom:none}
+    .menuBtn{ display:none; }
 
-    /* =========================
-       SECTIONS
-    ========================= */
-    section{padding: 92px 0}
-    .hero{padding-top: 118px; padding-bottom: 78px}
-
-    .grid2{
+    /* Hero */
+    .hero{
+      padding: 72px 0 36px;
+    }
+    .heroGrid{
       display:grid;
-      grid-template-columns: 1.25fr .95fr;
-      gap: 34px;
-      align-items: center;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 28px;
+      align-items:stretch;
     }
-
-    .tag{
+    .badge{
       display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px;
-      border-radius: var(--radiusPill);
-      border:1px solid rgba(109,94,252,.35);
-      background: rgba(109,94,252,.10);
-      color: rgba(189,197,255,.95);
-      font-size: .78rem;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border:1px solid rgba(233,238,252,.16);
+      background: rgba(233,238,252,.06);
+      color: var(--muted);
       font-weight:700;
-      letter-spacing:.02em;
+      font-size:13px;
     }
-    .tag i{color: var(--accent)}
-    .hero h1{
-      font-size: clamp(2.1rem, 5.2vw, 3.65rem);
+    .dot{
+      width:8px; height:8px; border-radius:99px;
+      background: var(--good);
+      box-shadow: 0 0 0 4px rgba(52,211,153,.18);
+    }
+    h1{
+      margin: 14px 0 10px;
+      font-size: clamp(34px, 4.5vw, 54px);
       line-height: 1.06;
-      margin-top: 12px;
+      letter-spacing: -0.6px;
     }
-    .gradText{
-      background: linear-gradient(120deg, rgba(231,238,252,1), rgba(109,94,252,1), rgba(245,158,11,1));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
+    .lead{
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 58ch;
+      margin: 0 0 18px;
     }
-    .heroLead{
+    .heroActions{ display:flex; gap:12px; flex-wrap:wrap; margin-top: 14px; }
+    .subtext{
       margin-top: 14px;
-      max-width: 56ch;
-      font-size: clamp(0.98rem, 2.2vw, 1.06rem);
+      color: rgba(183,192,221,.9);
+      font-weight:600;
+      font-size: 13px;
     }
-    .heroActions{
-      display:flex; flex-wrap:wrap;
-      gap: 12px;
-      margin-top: 22px;
-      align-items:center;
+    .kpis{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 18px;
     }
-    .micro{
-      display:flex; gap:10px; align-items:center;
-      color: var(--muted2);
-      font-size: .88rem;
-      flex: 1 1 240px;
-      min-width: 240px;
+    .kpi{
+      padding: 14px 14px;
+      border-radius: 16px;
+      border:1px solid rgba(233,238,252,.12);
+      background: rgba(17,27,51,.55);
+      box-shadow: 0 10px 24px rgba(0,0,0,.25);
     }
-    .micro i{color: var(--good)}
+    .kpi strong{ font-size: 18px; display:block; }
+    .kpi span{ color: var(--muted); font-weight:600; font-size: 13px; }
 
     .heroCard{
       border-radius: var(--radius2);
-      border: 1px solid rgba(148,163,184,.20);
-      background: radial-gradient(900px 500px at 20% 0%, rgba(245,158,11,.12), transparent 60%),
-                  radial-gradient(800px 460px at 100% 30%, rgba(109,94,252,.20), transparent 55%),
-                  rgba(255,255,255,.04);
-      box-shadow: var(--shadow2);
-      padding: 22px;
-      position:relative;
+      border: 1px solid rgba(233,238,252,.14);
+      background: linear-gradient(180deg, rgba(17,27,51,.75), rgba(15,24,48,.65));
+      box-shadow: var(--shadow);
       overflow:hidden;
+      position:relative;
+      min-height: 420px;
     }
-    .heroCard:before{
+    .heroCard::before{
       content:"";
-      position:absolute; inset:-1px;
-      background: linear-gradient(135deg, rgba(109,94,252,.30), rgba(245,158,11,.18), transparent 55%);
-      opacity:.18;
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(600px 260px at 30% 10%, rgba(124,92,255,.25), transparent 55%),
+        radial-gradient(520px 220px at 80% 30%, rgba(34,211,238,.18), transparent 55%),
+        radial-gradient(500px 240px at 50% 90%, rgba(52,211,153,.10), transparent 60%);
       pointer-events:none;
     }
-    .heroCardInner{position:relative}
-    .miniGrid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 14px;
-    }
-    .mini{
-      border-radius: 14px;
-      border:1px solid rgba(148,163,184,.16);
-      background: rgba(255,255,255,.03);
-      padding: 12px 12px;
-    }
-    .mini b{
-      display:block;
-      color: var(--text);
-      font-size: 1.05rem;
-      letter-spacing:-.02em;
-    }
-    .mini small{
-      display:block;
-      color: var(--muted2);
-      margin-top: 4px;
-      font-size: .78rem;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-    }
-
-    /* Proof bar */
-    .proofBar{
-      margin-top: 28px;
-      border-radius: var(--radius2);
-      border:1px solid rgba(148,163,184,.16);
-      background: rgba(255,255,255,.03);
-      padding: 16px;
+    .heroCardInner{
+      position:relative;
+      padding: 22px;
       display:flex;
-      gap: 14px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content: space-between;
+      flex-direction:column;
+      gap:14px;
+      height:100%;
     }
-    .proofLeft{
-      display:flex; gap:12px; align-items:center; flex-wrap:wrap;
-      color: rgba(231,238,252,.9);
-      font-weight:600;
+    .miniHeader{
+      display:flex; justify-content:space-between; align-items:center; gap:10px;
     }
-    .stars{
-      display:inline-flex; gap:3px;
-      color: #fbbf24;
-    }
-    .proofRight{
-      display:flex; gap:10px; flex-wrap:wrap;
-      color: var(--muted2);
-      font-size:.9rem;
-    }
-
-    /* Headings */
-    .kicker{
-      color: rgba(189,197,255,.95);
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      font-size:.78rem;
+    .pill{
+      font-size:12px;
       font-weight:800;
-      margin-bottom: 10px;
-      display:flex; align-items:center; gap:10px;
+      color: rgba(233,238,252,.92);
+      background: rgba(233,238,252,.08);
+      border:1px solid rgba(233,238,252,.14);
+      padding: 8px 10px;
+      border-radius: 999px;
     }
-    .kicker:before{
-      content:"";
-      width:34px;height:2px;border-radius:99px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      display:inline-block;
+    .window{
+      border-radius: 18px;
+      border:1px solid rgba(233,238,252,.14);
+      background: rgba(11,18,32,.55);
+      overflow:hidden;
     }
+    .windowTop{
+      display:flex; align-items:center; gap:8px;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(233,238,252,.10);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight:700;
+    }
+    .dots{ display:flex; gap:7px; margin-right:6px; }
+    .dots i{
+      width:10px; height:10px; border-radius:99px; display:inline-block;
+      background: rgba(233,238,252,.22);
+    }
+    .windowBody{ padding: 14px; }
+    .mockRow{
+      display:flex; gap:10px; align-items:center; margin-bottom:10px;
+    }
+    .mockIcon{
+      width:34px; height:34px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(124,92,255,.25), rgba(34,211,238,.16));
+      border:1px solid rgba(233,238,252,.14);
+    }
+    .mockLine{
+      height:10px; border-radius: 999px;
+      background: rgba(233,238,252,.10);
+      border:1px solid rgba(233,238,252,.06);
+      flex:1;
+    }
+    .mockLine.short{ flex:.55; }
+    .mockGrid{
+      display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top:10px;
+    }
+    .mockCard{
+      border-radius: 16px;
+      border:1px solid rgba(233,238,252,.12);
+      background: rgba(17,27,51,.55);
+      padding: 12px;
+    }
+    .mockCard strong{ display:block; font-size: 13px; }
+    .mockCard span{ color: var(--muted); font-size: 12px; font-weight:600; }
 
+    /* Sections */
+    section{ padding: 46px 0; }
     .sectionHead{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap: 24px;
-      margin-bottom: 28px;
+      display:flex; align-items:flex-end; justify-content:space-between; gap:16px;
+      margin-bottom: 18px;
     }
-    .sectionHead .titleWrap{max-width: 760px}
     .sectionHead h2{
-      font-size: clamp(1.85rem, 4.2vw, 2.85rem);
-      line-height: 1.08;
+      margin:0;
+      font-size: clamp(22px, 3vw, 30px);
+      letter-spacing: -.3px;
+      line-height:1.15;
     }
-    .sectionHead p{max-width: 76ch}
+    .sectionHead p{
+      margin:0;
+      color: var(--muted);
+      max-width: 58ch;
+      font-weight:600;
+      font-size: 14px;
+    }
 
-    /* Cards grid */
-    .grid3{display:grid; grid-template-columns: repeat(3,1fr); gap:16px}
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
     .card{
-      border-radius: var(--radius2);
-      border:1px solid rgba(148,163,184,.16);
-      background: rgba(255,255,255,.04);
-      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      border:1px solid rgba(233,238,252,.12);
+      background: rgba(17,27,51,.55);
+      box-shadow: 0 10px 24px rgba(0,0,0,.22);
       padding: 18px;
       position:relative;
       overflow:hidden;
-      transition: transform .22s var(--ease), border-color .22s var(--ease), background .22s var(--ease);
     }
-    .card:hover{transform: translateY(-4px); border-color: rgba(109,94,252,.40); background: rgba(255,255,255,.055)}
-    .cardTop{
-      display:flex; align-items:center; justify-content:space-between;
-      margin-bottom: 10px;
-      gap: 10px;
+    .card::before{
+      content:"";
+      position:absolute; inset:-1px;
+      background: radial-gradient(500px 220px at 20% 0%, rgba(124,92,255,.14), transparent 60%);
+      pointer-events:none;
     }
+    .card > *{ position:relative; }
     .icon{
-      width:44px;height:44px;border-radius: 14px;
-      background: rgba(109,94,252,.16);
-      border:1px solid rgba(109,94,252,.24);
-      display:flex;align-items:center;justify-content:center;
-      color: rgba(189,197,255,.95);
-      flex: 0 0 auto;
+      width:44px; height:44px;
+      border-radius: 16px;
+      border:1px solid rgba(233,238,252,.14);
+      background: linear-gradient(135deg, rgba(124,92,255,.35), rgba(34,211,238,.18));
+      display:grid; place-items:center;
+      margin-bottom: 12px;
+      box-shadow: 0 12px 22px rgba(124,92,255,.15);
     }
-    .badge{
-      font-size:.74rem;
-      padding:6px 10px;
-      border-radius: var(--radiusPill);
-      border:1px solid rgba(148,163,184,.18);
-      background: rgba(255,255,255,.03);
-      color: var(--muted2);
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      font-weight:700;
-      white-space: nowrap;
-    }
-    .list{
-      list-style:none;
-      padding:0;margin: 12px 0 0 0;
-      display:grid; gap:8px;
-      color: rgba(231,238,252,.82);
-      font-size:.92rem;
-    }
-    .list li{display:flex; gap:10px; align-items:flex-start}
-    .list i{color: var(--good); margin-top: 3px}
+    .icon svg{ width:22px; height:22px; opacity:.95; }
+    .card h3{ margin: 0 0 6px; font-size: 16px; letter-spacing: -.2px; }
+    .card p{ margin: 0 0 12px; color: var(--muted); font-weight:600; font-size: 13px; }
+    .bullets{ margin:0; padding-left: 18px; color: rgba(183,192,221,.95); font-weight:600; font-size: 13px; }
+    .bullets li{ margin: 6px 0; }
 
-    /* Split section */
     .split{
       display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 18px;
-      align-items: start;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 16px;
+      align-items:stretch;
     }
     .panel{
       border-radius: var(--radius2);
-      border:1px solid rgba(148,163,184,.16);
-      background: rgba(255,255,255,.03);
+      border:1px solid rgba(233,238,252,.12);
+      background: rgba(17,27,51,.50);
+      box-shadow: var(--shadow);
       padding: 18px;
     }
-    .panel h3{margin-bottom: 6px}
-    .checkGrid{display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top: 12px}
-    .check{
-      display:flex; gap:10px;
+    .steps{
+      display:grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .step{
+      display:flex; gap:12px; align-items:flex-start;
       padding: 12px;
       border-radius: 16px;
-      border:1px solid rgba(148,163,184,.14);
-      background: rgba(255,255,255,.03);
-      color: rgba(231,238,252,.86);
-      font-size:.92rem;
+      border:1px solid rgba(233,238,252,.10);
+      background: rgba(11,18,32,.35);
     }
-    .check i{color: var(--accent); margin-top: 2px}
+    .num{
+      width:34px; height:34px; border-radius: 12px;
+      background: rgba(124,92,255,.20);
+      border:1px solid rgba(124,92,255,.35);
+      display:grid; place-items:center;
+      font-weight:900;
+      color: rgba(233,238,252,.95);
+      flex:0 0 auto;
+    }
+    .step strong{ display:block; margin-bottom: 2px; }
+    .step span{ color: var(--muted); font-weight:600; font-size: 13px; }
 
-    /* Case studies */
-    .caseGrid{display:grid; grid-template-columns: repeat(2,1fr); gap:16px}
-    .case{
+    .pricing{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      align-items:stretch;
+    }
+    .priceCard{
       border-radius: var(--radius2);
-      border:1px solid rgba(148,163,184,.16);
-      background: rgba(255,255,255,.04);
+      border:1px solid rgba(233,238,252,.12);
+      background: rgba(17,27,51,.55);
+      box-shadow: var(--shadow);
       padding: 18px;
       position:relative;
       overflow:hidden;
     }
-    .case .meta{
-      display:flex; flex-wrap:wrap; gap:10px; align-items:center;
-      margin-top: 10px;
-      color: var(--muted2);
-      font-size:.9rem;
+    .priceCard.featured{
+      border-color: rgba(34,211,238,.30);
+      background: linear-gradient(180deg, rgba(17,27,51,.65), rgba(15,24,48,.65));
     }
-    .metricRow{display:flex; flex-wrap:wrap; gap:10px; margin-top: 12px}
-    .metric{
-      border-radius: var(--radiusPill);
-      border:1px solid rgba(148,163,184,.16);
-      background: rgba(255,255,255,.03);
-      padding: 6px 10px;
-      font-size:.82rem;
-      color: rgba(231,238,252,.85);
-      display:inline-flex; gap:8px; align-items:center;
+    .ribbon{
+      position:absolute; top:14px; right:14px;
+      font-size:12px; font-weight:900;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(34,211,238,.14);
+      border:1px solid rgba(34,211,238,.28);
+      color: rgba(233,238,252,.95);
     }
-    .metric i{color: var(--good)}
+    .priceTop{ display:flex; justify-content:space-between; gap:12px; align-items:flex-start; }
+    .priceCard h3{ margin:0; font-size: 16px; }
+    .priceCard p{ margin:6px 0 12px; color: var(--muted); font-weight:600; font-size: 13px; }
+    .price{
+      font-size: 26px;
+      font-weight: 950;
+      letter-spacing: -.4px;
+      margin: 0 0 10px;
+    }
+    .price small{ font-size: 12px; font-weight:800; color: var(--muted); }
+    .priceList{ margin:0; padding-left: 18px; color: rgba(183,192,221,.95); font-weight:600; font-size: 13px; }
+    .priceList li{ margin: 7px 0; }
+    .priceCard .btn{ width:100%; margin-top: 14px; }
 
-    /* FAQ */
-    .faq{
-      max-width: 920px;
-      margin: 0 auto;
-    }
-    .qa{
-      border-radius: var(--radius2);
-      border:1px solid rgba(148,163,184,.16);
-      background: rgba(255,255,255,.03);
-      margin-bottom: 12px;
-      overflow:hidden;
-    }
-    .q{
-      display:flex; justify-content:space-between; align-items:center;
-      padding: 16px 18px;
-      cursor:pointer;
+    /* Testimonials */
+    .testimonials{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 14px;
     }
-    .q h4{font-size: 1.02rem; margin:0}
-    .toggle{
-      width:30px;height:30px;border-radius:999px;
-      border:1px solid rgba(148,163,184,.24);
-      display:flex;align-items:center;justify-content:center;
-      color: rgba(189,197,255,.95);
-      background: rgba(255,255,255,.02);
-      transition: transform .2s var(--ease), background .2s var(--ease);
-      flex-shrink:0;
+    .quote{
+      border-radius: var(--radius2);
+      border:1px solid rgba(233,238,252,.12);
+      background: rgba(17,27,51,.55);
+      box-shadow: var(--shadow);
+      padding: 18px;
     }
-    .a{
-      padding: 0 18px;
-      max-height:0;
-      overflow:hidden;
-      transition: max-height .26s var(--ease), padding .26s var(--ease);
+    .quote p{ margin:0 0 12px; color: rgba(233,238,252,.92); font-weight:650; }
+    .person{
+      display:flex; gap:10px; align-items:center;
+      color: var(--muted);
+      font-weight:700;
+      font-size: 13px;
     }
-    .qa.open .a{
-      max-height: 260px;
-      padding: 0 18px 16px 18px;
+    .avatar{
+      width:36px; height:36px; border-radius: 14px;
+      background: linear-gradient(135deg, rgba(124,92,255,.35), rgba(34,211,238,.18));
+      border:1px solid rgba(233,238,252,.14);
     }
-    .qa.open .toggle{transform: rotate(45deg); background: rgba(109,94,252,.10)}
 
     /* Contact */
-    .contactGrid{
+    .contact{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 14px;
+      align-items:stretch;
+    }
+    form{
+      display:grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    label{
+      font-size: 13px;
+      font-weight: 800;
+      color: rgba(233,238,252,.9);
+    }
+    input, textarea, select{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(233,238,252,.14);
+      background: rgba(11,18,32,.45);
+      color: var(--text);
+      outline:none;
+      font-weight:650;
+      font-size: 14px;
+    }
+    textarea{ min-height: 120px; resize: vertical; }
+    input:focus, textarea:focus, select:focus{
+      border-color: rgba(34,211,238,.35);
+      box-shadow: 0 0 0 4px rgba(34,211,238,.12);
+    }
+    .formRow{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      align-items:start;
+      gap: 10px;
     }
-    .contactCard{
+    .hint{
+      font-size: 12px;
+      color: var(--muted);
+      font-weight:650;
+      margin-top: 6px;
+    }
+    .miniCard{
       border-radius: var(--radius2);
-      border:1px solid rgba(148,163,184,.16);
-      background: rgba(255,255,255,.04);
-      padding: 18px;
+      border:1px solid rgba(233,238,252,.12);
+      background: rgba(17,27,51,.55);
       box-shadow: var(--shadow);
+      padding: 18px;
+      display:grid;
+      gap: 10px;
+      align-content:start;
     }
-    .contactRow{
-      display:flex; gap:12px; align-items:flex-start;
+    .contactItem{
+      display:flex; gap:10px; align-items:flex-start;
       padding: 12px;
       border-radius: 16px;
-      border:1px solid rgba(148,163,184,.14);
-      background: rgba(255,255,255,.03);
-      margin-top: 12px;
+      border:1px solid rgba(233,238,252,.10);
+      background: rgba(11,18,32,.35);
     }
-    .cIcon{
-      width:40px;height:40px;border-radius: 14px;
-      background: rgba(245,158,11,.12);
-      border: 1px solid rgba(245,158,11,.22);
-      display:flex; align-items:center; justify-content:center;
-      color: rgba(255,211,128,.95);
-      flex-shrink:0;
+    .contactItem strong{ display:block; margin-bottom: 2px; }
+    .contactItem span{ color: var(--muted); font-weight:650; font-size: 13px; }
+    .miniIcon{
+      width:36px; height:36px; border-radius: 14px;
+      border:1px solid rgba(233,238,252,.14);
+      background: rgba(233,238,252,.06);
+      display:grid; place-items:center;
+      flex: 0 0 auto;
     }
-    .contactRow b{display:block; font-size: .95rem}
-    .contactRow a{color: rgba(231,238,252,.9); word-break: break-word}
-    .form .field{margin-top: 12px}
-    label{display:block; font-size:.84rem; color: rgba(231,238,252,.82); margin-bottom: 6px; font-weight:600}
-    input, select, textarea{
-      width:100%;
-      border-radius: 14px;
-      border:1px solid rgba(148,163,184,.22);
-      background: rgba(6,8,18,.55);
-      color: var(--text);
-      padding: 12px 12px;
-      font-size:.95rem;
-      outline:none;
-      transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
-    }
-    textarea{min-height: 120px; resize:vertical}
-    input:focus, select:focus, textarea:focus{
-      border-color: rgba(109,94,252,.65);
-      box-shadow: 0 0 0 3px rgba(109,94,252,.12);
-    }
-    .tiny{font-size:.82rem; color: var(--muted2); margin-top: 10px}
+    .miniIcon svg{ width:18px; height:18px; opacity:.9; }
 
+    /* Footer */
     footer{
-      padding: 36px 0;
-      border-top: 1px solid rgba(148,163,184,.12);
-      color: var(--muted2);
-      background: rgba(0,0,0,.12);
+      padding: 28px 0 40px;
+      border-top: 1px solid var(--line);
+      margin-top: 20px;
+      color: var(--muted);
+      font-weight:650;
+      font-size: 13px;
     }
     .foot{
-      display:flex; flex-wrap:wrap; gap:12px;
-      align-items:center; justify-content:space-between;
+      display:flex; justify-content:space-between; align-items:center; gap:16px;
+      flex-wrap:wrap;
     }
+    .footLinks{ display:flex; gap:14px; flex-wrap:wrap; }
+    .footLinks a{ color: var(--muted); padding: 8px 10px; border-radius: 10px; }
+    .footLinks a:hover{ background: rgba(233,238,252,.06); color: var(--text); }
 
-    /* Local strip */
-    .localStrip{
-      margin-top: 14px;
-      display:flex; flex-wrap:wrap; gap:8px;
-    }
-    .localPill{
-      padding: 6px 10px;
-      font-size:.78rem;
-      border-radius: 999px;
-      border:1px solid rgba(148,163,184,.18);
-      background: rgba(255,255,255,.03);
-      color: var(--muted2);
-    }
-
-    /* =========================
-       RESPONSIVE FIXES
-    ========================= */
-
-    /* Tablet and down: collapse nav links */
+    /* Responsive */
     @media (max-width: 980px){
-      nav.links{display:none}
-      .menuBtn{display:inline-flex}
-      .brand{min-width:auto}
-
-      section{padding: 78px 0}
-      .hero{padding-top: 110px; padding-bottom: 64px}
-      .grid2{grid-template-columns:1fr; gap:18px}
-      .split{grid-template-columns:1fr}
-      .grid3{grid-template-columns:1fr}
-      .caseGrid{grid-template-columns:1fr}
-      .contactGrid{grid-template-columns:1fr}
+      .heroGrid{ grid-template-columns: 1fr; }
+      .heroCard{ min-height: 360px; }
+      .split, .contact{ grid-template-columns: 1fr; }
+      .grid3, .pricing, .testimonials{ grid-template-columns: 1fr; }
+      .kpis{ grid-template-columns: 1fr; }
+      .links{ display:none; }
+      .menuBtn{ display:inline-flex; }
     }
 
-    /* Phone: reduce header clutter + improve spacing */
-    @media (max-width: 640px){
-      header{height:70px}
-      .nav{height:70px}
-
-      .pill{display:none}
-      .ctaRow .btnGhost{display:none} /* keep one main CTA + menu on phone */
-
-      .hero{padding-top: 100px}
-      .heroActions{
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .heroActions .btn{
-        width:100%;
-        justify-content:center;
-      }
-      .micro{
-        min-width: 0;
-        width:100%;
-        justify-content: center;
-        text-align:center;
-      }
-
-      .proofBar{
-        padding: 14px;
-        gap: 10px;
-      }
-      .proofRight{
-        width: 100%;
-        justify-content: flex-start;
-        gap: 10px 14px;
-      }
-
-      .miniGrid{grid-template-columns:1fr}
-      .card, .panel, .case, .contactCard{padding: 16px}
-
-      .q{padding: 14px 14px}
-      .a{padding: 0 14px}
-      .qa.open .a{padding: 0 14px 14px 14px}
-
-      .foot{
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    /* Very small phones */
-    @media (max-width: 380px){
-      .brand b{font-size: 1rem}
-      .brand small{font-size: .68rem}
-      .btn{padding: 12px 14px}
+    /* Small utility */
+    .muted{ color: var(--muted); }
+    .divider{
+      height:1px;
+      background: var(--line);
+      margin: 16px 0;
     }
   </style>
 </head>
 
 <body>
-  <!-- HEADER -->
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#top" aria-label="BorderCity Digital">
-        <div class="mark"><i class="fa-solid fa-city"></i></div>
-        <div>
-          <b>BorderCity Digital</b>
-          <small>Windsor • Web • SEO • Growth</small>
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="container">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="#top">
+          <div class="logo" aria-hidden="true"></div>
+          <span>
+            BorderCity Digital
+            <small>Windsor, Ontario • Web + Marketing</small>
+          </span>
+        </a>
+
+        <div class="links" role="navigation" aria-label="Site">
+          <a href="#services">Services</a>
+          <a href="#process">Process</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#work">Work</a>
+          <a href="#contact">Contact</a>
         </div>
-      </a>
 
-      <nav class="links" aria-label="Primary">
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#why">Why Us</a>
-        <a href="#work">Work</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
+        <div class="ctaRow">
+          <a class="btn menuBtn" href="#contact" aria-label="Open menu (mobile)">
+            Contact
+          </a>
+          <a class="btn" href="#work">View Work</a>
+          <a class="btn primary" href="#contact">Book a Call</a>
+        </div>
       </nav>
-
-      <div class="ctaRow">
-        <div class="pill"><i class="fa-solid fa-location-dot"></i> Windsor–Essex focused</div>
-        <a class="btn btnGhost" href="#contact"><i class="fa-regular fa-calendar"></i> Free consult</a>
-        <a class="btn btnPrimary" href="#contact"><i class="fa-solid fa-rocket"></i> Start a project</a>
-        <button class="menuBtn" id="menuBtn" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
-      </div>
     </div>
   </header>
 
-  <!-- MOBILE MENU -->
-  <div class="mobilePanel" id="mobilePanel">
-    <a href="#services">Services</a>
-    <a href="#process">Process</a>
-    <a href="#why">Why Us</a>
-    <a href="#work">Work</a>
-    <a href="#faq">FAQ</a>
-    <a href="#contact">Contact</a>
-  </div>
-
-  <!-- HERO -->
+  <!-- Hero -->
   <main id="top" class="hero">
     <div class="container">
-      <div class="grid2">
+      <div class="heroGrid">
         <div>
-          <div class="tag">
-            <i class="fa-solid fa-bolt"></i>
-            Built for local leads, not vanity
-          </div>
-
-          <h1>
-            Windsor websites that <span class="gradText">turn visitors into calls</span>
-          </h1>
-          <p class="heroLead">
-            BorderCity Digital builds fast, modern websites for Windsor–Essex businesses —
-            with clean design, local SEO foundations, and a conversion-first layout that makes it easy to book, call, or request a quote.
+          <div class="badge"><span class="dot" aria-hidden="true"></span> Windsor-based • Serving Canada & the U.S.</div>
+          <h1>Websites that look premium and generate leads.</h1>
+          <p class="lead">
+            BorderCity Digital helps service businesses win online with modern web design, local SEO, and conversion-focused messaging.
+            Clean design. Fast pages. Real results.
           </p>
 
           <div class="heroActions">
-            <a class="btn btnPrimary" href="#contact">
-              <i class="fa-solid fa-comments"></i> Get a quote
-            </a>
-            <a class="btn btnGhost" href="#services">
-              <i class="fa-solid fa-layer-group"></i> View services
-            </a>
-            <div class="micro"><i class="fa-solid fa-check-circle"></i> Clear scope • fast timelines • simple communication</div>
+            <a class="btn primary" href="#contact">Get a Free Website Audit</a>
+            <a class="btn" href="#pricing">See Packages</a>
           </div>
 
-          <div class="proofBar">
-            <div class="proofLeft">
-              <span class="stars" aria-label="5 star quality">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              </span>
-              <span>Designed for Windsor services: contractors, clinics, restaurants, trades</span>
+          <div class="subtext">
+            Typical outcomes: better Google visibility, faster load times, and more calls & form submissions.
+          </div>
+
+          <div class="kpis" aria-label="Key stats">
+            <div class="kpi">
+              <strong>Fast launch</strong>
+              <span>1–2 weeks for most sites</span>
             </div>
-            <div class="proofRight">
-              <span><i class="fa-solid fa-gauge-high"></i> Fast on mobile</span>
-              <span><i class="fa-solid fa-shield-halved"></i> Secure + maintained</span>
-              <span><i class="fa-solid fa-magnifying-glass"></i> SEO-ready structure</span>
+            <div class="kpi">
+              <strong>Mobile-first</strong>
+              <span>Built for real customers</span>
+            </div>
+            <div class="kpi">
+              <strong>SEO-ready</strong>
+              <span>Clean structure + basics</span>
             </div>
           </div>
         </div>
 
-        <aside class="heroCard" aria-label="Project snapshot">
+        <aside class="heroCard" aria-label="Mock preview">
           <div class="heroCardInner">
-            <div class="tag" style="border-color: rgba(245,158,11,.35); background: rgba(245,158,11,.10); color: rgba(255,221,160,.95)">
-              <i class="fa-solid fa-map"></i>
-              Windsor–Essex focus
+            <div class="miniHeader">
+              <div class="pill">Preview • BorderCityDigital.com</div>
+              <div class="pill">Lead-Driven Layout</div>
             </div>
 
-            <h3 style="margin-top:12px">What you get (every build)</h3>
-            <p class="soft">A premium local-business site that’s simple, fast, and built to convert.</p>
+            <div class="window" aria-label="Mock browser window">
+              <div class="windowTop">
+                <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                bordercitydigital.com / home
+              </div>
+              <div class="windowBody">
+                <div class="mockRow">
+                  <div class="mockIcon" aria-hidden="true"></div>
+                  <div class="mockLine"></div>
+                </div>
+                <div class="mockRow">
+                  <div class="mockLine"></div>
+                  <div class="mockLine short"></div>
+                </div>
 
-            <div style="margin-top:14px; display:grid; gap:10px;">
-              <div style="display:flex; gap:10px; align-items:flex-start">
-                <i class="fa-solid fa-check" style="color:var(--good); margin-top:3px"></i>
-                <div><b style="color:var(--text)">Conversion-first structure</b><br><span class="soft">Clear CTA placement + lead capture sections</span></div>
-              </div>
-              <div style="display:flex; gap:10px; align-items:flex-start">
-                <i class="fa-solid fa-check" style="color:var(--good); margin-top:3px"></i>
-                <div><b style="color:var(--text)">Local SEO foundations</b><br><span class="soft">Service + Windsor area targeting built in</span></div>
-              </div>
-              <div style="display:flex; gap:10px; align-items:flex-start">
-                <i class="fa-solid fa-check" style="color:var(--good); margin-top:3px"></i>
-                <div><b style="color:var(--text)">Fast, modern build</b><br><span class="soft">Lightweight code + responsive layout</span></div>
+                <div class="mockGrid" aria-label="Mock cards">
+                  <div class="mockCard">
+                    <strong>Website</strong>
+                    <span>Modern + fast</span>
+                  </div>
+                  <div class="mockCard">
+                    <strong>Local SEO</strong>
+                    <span>Rank in Windsor</span>
+                  </div>
+                  <div class="mockCard">
+                    <strong>Copywriting</strong>
+                    <span>Convert visitors</span>
+                  </div>
+                  <div class="mockCard">
+                    <strong>Maintenance</strong>
+                    <span>Keep it healthy</span>
+                  </div>
+                </div>
+
+                <div class="divider" aria-hidden="true"></div>
+
+                <div class="mockRow" style="margin-bottom:0;">
+                  <a class="btn primary" href="#contact" style="width:100%;">Book a Call</a>
+                </div>
               </div>
             </div>
 
-            <div class="miniGrid">
-              <div class="mini">
-                <b>4–6 weeks</b>
-                <small>Typical launch</small>
-              </div>
-              <div class="mini">
-                <b>2 revisions</b>
-                <small>Per phase</small>
-              </div>
-              <div class="mini">
-                <b>On-page SEO</b>
-                <small>Baseline included</small>
-              </div>
-              <div class="mini">
-                <b>Support</b>
-                <small>Ongoing options</small>
-              </div>
-            </div>
-
-            <div class="localStrip" aria-label="Local areas served">
-              <span class="localPill">Walkerville</span>
-              <span class="localPill">South Windsor</span>
-              <span class="localPill">Tecumseh</span>
-              <span class="localPill">LaSalle</span>
-              <span class="localPill">Amherstburg</span>
-              <span class="localPill">Riverside</span>
+            <div class="muted" style="font-weight:700; font-size:13px;">
+              Built for service businesses: contractors, cleaning, clinics, real estate, and local pros.
             </div>
           </div>
         </aside>
@@ -799,910 +646,430 @@ Copy/paste this entire file into GitHub as `index.html`.
     </div>
   </main>
 
-  <!-- SERVICES -->
+  <!-- Services -->
   <section id="services">
     <div class="container">
       <div class="sectionHead">
-        <div class="titleWrap">
-          <div class="kicker">Services</div>
-          <h2>Everything you need to look credible and get found locally</h2>
-          <p>
-            A website is only “pretty” until it produces leads. We build your foundation (site + SEO structure)
-            and offer simple monthly support so your online presence keeps improving.
-          </p>
-        </div>
         <div>
-          <a class="btn btnGhost" href="#contact"><i class="fa-solid fa-phone"></i> Talk to Sales</a>
+          <h2>What BorderCity Digital does</h2>
+          <p>Simple, high-impact services that help you get more calls, bookings, and qualified leads.</p>
         </div>
       </div>
 
       <div class="grid3">
-        <div class="card">
-          <div class="cardTop">
-            <div class="icon"><i class="fa-solid fa-code"></i></div>
-            <div class="badge">Web Design</div>
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v11A2.5 2.5 0 0 1 17.5 20h-11A2.5 2.5 0 0 1 4 17.5v-11Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M7 8h10M7 12h6M7 16h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
           </div>
-          <h3>Custom Website Build</h3>
-          <p>Modern, fast, and conversion-focused — designed for real local customers (mobile-first).</p>
-          <ul class="list">
-            <li><i class="fa-solid fa-check"></i> Clear hero + CTA layout</li>
-            <li><i class="fa-solid fa-check"></i> Service sections + trust signals</li>
-            <li><i class="fa-solid fa-check"></i> Contact & quote capture</li>
-            <li><i class="fa-solid fa-check"></i> Speed + responsive build</li>
+          <h3>Web Design</h3>
+          <p>Premium design, fast performance, and a structure built to convert.</p>
+          <ul class="bullets">
+            <li>Mobile-first layout</li>
+            <li>Speed & Core Web Vitals basics</li>
+            <li>Lead forms + clear CTAs</li>
           </ul>
-          <p style="margin-top:12px" class="soft"><b style="color:var(--text)">Best for:</b> local service businesses that need more calls & inquiries.</p>
-        </div>
+        </article>
 
-        <div class="card">
-          <div class="cardTop">
-            <div class="icon" style="background: rgba(245,158,11,.12); border-color: rgba(245,158,11,.22); color: rgba(255,221,160,.95)">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-            <div class="badge">SEO</div>
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 19V5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M4 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M7 16V11l4 2 5-6 2 2v7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </div>
-          <h3>Local SEO Foundations</h3>
-          <p>We structure your site so Google understands what you do and where you serve.</p>
-          <ul class="list">
-            <li><i class="fa-solid fa-check"></i> Title/H1 structure + on-page SEO</li>
-            <li><i class="fa-solid fa-check"></i> Service-area targeting (Windsor–Essex)</li>
-            <li><i class="fa-solid fa-check"></i> Internal linking strategy</li>
-            <li><i class="fa-solid fa-check"></i> Schema basics (where applicable)</li>
+          <h3>Local SEO</h3>
+          <p>Get found on Google in Windsor & surrounding areas.</p>
+          <ul class="bullets">
+            <li>Google Business Profile optimization</li>
+            <li>On-page SEO fundamentals</li>
+            <li>Location + service targeting</li>
           </ul>
-          <p style="margin-top:12px" class="soft"><b style="color:var(--text)">Best for:</b> businesses that want consistent local discovery.</p>
-        </div>
+        </article>
 
-        <div class="card">
-          <div class="cardTop">
-            <div class="icon" style="background: rgba(34,197,94,.12); border-color: rgba(34,197,94,.22); color: rgba(180,255,210,.95)">
-              <i class="fa-solid fa-screwdriver-wrench"></i>
-            </div>
-            <div class="badge">Management</div>
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M7 7.5A3.5 3.5 0 0 1 10.5 4h3A3.5 3.5 0 0 1 17 7.5v9A3.5 3.5 0 0 1 13.5 20h-3A3.5 3.5 0 0 1 7 16.5v-9Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M9 9h6M9 12h6M9 15h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
           </div>
-          <h3>Website + Marketing Management</
-           <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BorderCity Digital | Windsor Web Design, SEO & Local Growth</title>
-  <meta name="description" content="BorderCity Digital builds fast, conversion-focused websites for Windsor–Essex businesses. Web design, local SEO, and ongoing management." />
-  <meta name="theme-color" content="#0b1020" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <style>
-    :root{
-      --bg0:#060812;
-      --bg1:#0b1020;
-      --bg2:#0f1733;
-
-      --card:rgba(255,255,255,.06);
-      --card2:rgba(255,255,255,.08);
-      --border:rgba(148,163,184,.18);
-
-      --text:#e7eefc;
-      --muted:#aab8d6;
-      --muted2:#7f93bf;
-
-      --primary:#6d5efc;
-      --primary2:#4f46e5;
-      --accent:#f59e0b;
-      --good:#22c55e;
-
-      --shadow:0 18px 60px rgba(0,0,0,.45);
-      --shadow2:0 30px 90px rgba(0,0,0,.55);
-
-      --radius:16px;
-      --radius2:22px;
-      --radiusPill:999px;
-      --ease: cubic-bezier(.2,.8,.2,1);
-      --max:1180px;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1100px 700px at 20% -10%, rgba(109,94,252,.28), transparent 55%),
-        radial-gradient(900px 650px at 90% 0%, rgba(245,158,11,.18), transparent 55%),
-        radial-gradient(700px 500px at 50% 105%, rgba(34,197,94,.12), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1) 40%, #050611);
-      overflow-x:hidden;
-    }
-
-    img, svg { max-width: 100%; height: auto; }
-    a{color:inherit; text-decoration:none}
-    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
-
-    h1,h2,h3,h4{
-      font-family:"Space Grotesk", system-ui, sans-serif;
-      margin:0 0 .6rem 0;
-      letter-spacing:-.02em;
-    }
-    p{margin:.4rem 0 0 0; color:var(--muted); line-height:1.7}
-    .soft{color: var(--muted2)}
-
-    /* =========================
-       HEADER / NAV
-    ========================= */
-    header{
-      position:fixed; top:0; left:0; right:0;
-      height:74px;
-      z-index:999;
-      background: rgba(6,8,18,.72);
-      backdrop-filter: blur(16px);
-      border-bottom:1px solid rgba(148,163,184,.12);
-    }
-    .nav{
-      height:74px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-    }
-
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      min-width: 220px;
-      flex: 0 0 auto;
-    }
-    .mark{
-      width:42px;height:42px;border-radius:14px;
-      background: radial-gradient(circle at 20% 20%, var(--accent), var(--primary));
-      box-shadow: 0 0 0 1px rgba(255,255,255,.06), 0 16px 40px rgba(0,0,0,.55);
-      display:flex;align-items:center;justify-content:center;
-      color:#090b14;
-      flex: 0 0 auto;
-    }
-    .brand b{display:block; font-weight:800; font-size:1.05rem}
-    .brand small{display:block; color:var(--muted2); letter-spacing:.18em; text-transform:uppercase; font-size:.72rem; margin-top:2px}
-
-    nav.links{
-      display:flex; align-items:center; gap:22px;
-    }
-    nav.links a{
-      font-size:.92rem;
-      color:rgba(231,238,252,.78);
-      padding:10px 0;
-      position:relative;
-      white-space:nowrap;
-    }
-    nav.links a:after{
-      content:"";
-      position:absolute; left:0; bottom:6px;
-      width:0;height:2px;border-radius:99px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      transition: width .22s var(--ease);
-    }
-    nav.links a:hover{color:var(--text)}
-    nav.links a:hover:after{width:18px}
-
-    .ctaRow{
-      display:flex; align-items:center; gap:10px;
-      flex: 0 0 auto;
-    }
-    .pill{
-      font-size:.78rem;
-      padding:6px 10px;
-      border-radius:var(--radiusPill);
-      border:1px solid rgba(148,163,184,.22);
-      color:var(--muted2);
-      display:flex; align-items:center; gap:7px;
-      background: rgba(255,255,255,.03);
-      white-space: nowrap;
-    }
-    .btn{
-      border:0;
-      cursor:pointer;
-      border-radius: var(--radiusPill);
-      padding:12px 16px;
-      font-weight:700;
-      font-size:.92rem;
-      display:inline-flex; align-items:center; gap:10px;
-      transition: transform .22s var(--ease), box-shadow .22s var(--ease), background .22s var(--ease), border-color .22s var(--ease);
-      white-space:nowrap;
-    }
-    .btnPrimary{
-      background: linear-gradient(135deg, var(--primary), var(--primary2));
-      color:white;
-      box-shadow: 0 14px 45px rgba(109,94,252,.28);
-    }
-    .btnPrimary:hover{transform: translateY(-1px); box-shadow: 0 20px 65px rgba(109,94,252,.36)}
-    .btnGhost{
-      background: rgba(255,255,255,.03);
-      color: rgba(231,238,252,.88);
-      border:1px solid rgba(148,163,184,.2);
-    }
-    .btnGhost:hover{border-color: rgba(109,94,252,.55); transform: translateY(-1px)}
-    .menuBtn{
-      display:none;
-      width:42px;height:42px;border-radius:999px;
-      border:1px solid rgba(148,163,184,.22);
-      background: rgba(255,255,255,.03);
-      color:var(--text);
-      align-items:center; justify-content:center;
-    }
-
-    /* Mobile menu */
-    .mobilePanel{
-      display:none;
-      position:fixed;
-      top:74px; left:0; right:0;
-      background: rgba(6,8,18,.92);
-      backdrop-filter: blur(16px);
-      border-bottom:1px solid rgba(148,163,184,.12);
-      padding:14px 20px 18px;
-      z-index: 998;
-    }
-    .mobilePanel a{
-      display:block;
-      padding:12px 0;
-      color:rgba(231,238,252,.86);
-      border-bottom:1px solid rgba(148,163,184,.10);
-    }
-    .mobilePanel a:last-child{border-bottom:none}
-
-    /* =========================
-       SECTIONS
-    ========================= */
-    section{padding: 92px 0}
-    .hero{padding-top: 118px; padding-bottom: 78px}
-
-    .grid2{
-      display:grid;
-      grid-template-columns: 1.25fr .95fr;
-      gap: 34px;
-      align-items: center;
-    }
-
-    .tag{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px;
-      border-radius: var(--radiusPill);
-      border:1px solid rgba(109,94,252,.35);
-      background: rgba(109,94,252,.10);
-      color: rgba(189,197,255,.95);
-      font-size: .78rem;
-      font-weight:700;
-      letter-spacing:.02em;
-    }
-    .tag i{color: var(--accent)}
-    .hero h1{
-      font-size: clamp(2.1rem, 5.2vw, 3.65rem);
-      line-height: 1.06;
-      margin-top: 12px;
-    }
-    .gradText{
-      background: linear-gradient(120deg, rgba(231,238,252,1), rgba(109,94,252,1), rgba(245,158,11,1));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-    }
-    .heroLead{
-      margin-top: 14px;
-      max-width: 56ch;
-      font-size: clamp(0.98rem, 2.2vw, 1.06rem);
-    }
-    .heroActions{
-      display:flex; flex-wrap:wrap;
-      gap: 12px;
-      margin-top: 22px;
-      align-items:center;
-    }
-    .micro{
-      display:flex; gap:10px; align-items:center;
-      color: var(--muted2);
-      font-size: .88rem;
-      flex: 1 1 240px;
-      min-width: 240px;
-    }
-    .micro i{color: var(--good)}
-
-    .heroCard{
-      border-radius: var(--radius2);
-      border: 1px solid rgba(148,163,184,.20);
-      background: radial-gradient(900px 500px at 20% 0%, rgba(245,158,11,.12), transparent 60%),
-                  radial-gradient(800px 460px at 100% 30%, rgba(109,94,252,.20), transparent 55%),
-                  rgba(255,255,255,.04);
-      box-shadow: var(--shadow2);
-      padding: 22px;
-      position:relative;
-      overflow:hidden;
-    }
-    .heroCard:before{
-      content:"";
-      position:absolute; inset:-1px;
-      background: linear-gradient(135deg, rgba(109,94,252,.30), rgba(245,158,11,.18), transparent 55%);
-      opacity:.18;
-      pointer-events:none;
-    }
-    .heroCardInner{position:relative}
-    .miniGrid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 14px;
-    }
-    .mini{
-      border-radius: 14px;
-      border:1px solid rgba(148,163,184,.16);
-      background: rgba(255,255,255,.03);
-      padding: 12px 12px;
-    }
-    .mini b{
-      display:block;
-      color: var(--text);
-      font-size: 1.05rem;
-      letter-spacing:-.02em;
-    }
-    .mini small{
-      display:block;
-      color: var(--muted2);
-      margin-top: 4px;
-      font-size: .78rem;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-    }
-
-    /* Proof bar */
-    .proofBar{
-      margin-top: 28px;
-      border-radius: var(--radius2);
-      border:1px solid rgba(148,163,184,.16);
-      background: rgba(255,255,255,.03);
-      padding: 16px;
-      display:flex;
-      gap: 14px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content: space-between;
-    }
-    .proofLeft{
-      display:flex; gap:12px; align-items:center; flex-wrap:wrap;
-      color: rgba(231,238,252,.9);
-      font-weight:600;
-    }
-    .stars{
-      display:inline-flex; gap:3px;
-      color: #fbbf24;
-    }
-    .proofRight{
-      display:flex; gap:10px; flex-wrap:wrap;
-      color: var(--muted2);
-      font-size:.9rem;
-    }
-
-    /* Headings */
-    .kicker{
-      color: rgba(189,197,255,.95);
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      font-size:.78rem;
-      font-weight:800;
-      margin-bottom: 10px;
-      display:flex; align-items:center; gap:10px;
-    }
-    .kicker:before{
-      content:"";
-      width:34px;height:2px;border-radius:99px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      display:inline-block;
-    }
-
-    .sectionHead{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap: 24px;
-      margin-bottom: 28px;
-    }
-    .sectionHead .titleWrap{max-width: 760px}
-    .sectionHead h2{
-      font-size: clamp(1.85rem, 4.2vw, 2.85rem);
-      line-height: 1.08;
-    }
-    .sectionHead p{max-width: 76ch}
-
-    /* Cards grid */
-    .grid3{display:grid; grid-template-columns: repeat(3,1fr); gap:16px}
-    .card{
-      border-radius: var(--radius2);
-      border:1px solid rgba(148,163,184,.16);
-      background: rgba(255,255,255,.04);
-      box-shadow: var(--shadow);
-      padding: 18px;
-      position:relative;
-      overflow:hidden;
-      transition: transform .22s var(--ease), border-color .22s var(--ease), background .22s var(--ease);
-    }
-    .card:hover{transform: translateY(-4px); border-color: rgba(109,94,252,.40); background: rgba(255,255,255,.055)}
-    .cardTop{
-      display:flex; align-items:center; justify-content:space-between;
-      margin-bottom: 10px;
-      gap: 10px;
-    }
-    .icon{
-      width:44px;height:44px;border-radius: 14px;
-      background: rgba(109,94,252,.16);
-      border:1px solid rgba(109,94,252,.24);
-      display:flex;align-items:center;justify-content:center;
-      color: rgba(189,197,255,.95);
-      flex: 0 0 auto;
-    }
-    .badge{
-      font-size:.74rem;
-      padding:6px 10px;
-      border-radius: var(--radiusPill);
-      border:1px solid rgba(148,163,184,.18);
-      background: rgba(255,255,255,.03);
-      color: var(--muted2);
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      font-weight:700;
-      white-space: nowrap;
-    }
-    .list{
-      list-style:none;
-      padding:0;margin: 12px 0 0 0;
-      display:grid; gap:8px;
-      color: rgba(231,238,252,.82);
-      font-size:.92rem;
-    }
-    .list li{display:flex; gap:10px; align-items:flex-start}
-    .list i{color: var(--good); margin-top: 3px}
-
-    /* Split section */
-    .split{
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 18px;
-      align-items: start;
-    }
-    .panel{
-      border-radius: var(--radius2);
-      border:1px solid rgba(148,163,184,.16);
-      background: rgba(255,255,255,.03);
-      padding: 18px;
-    }
-    .panel h3{margin-bottom: 6px}
-    .checkGrid{display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top: 12px}
-    .check{
-      display:flex; gap:10px;
-      padding: 12px;
-      border-radius: 16px;
-      border:1px solid rgba(148,163,184,.14);
-      background: rgba(255,255,255,.03);
-      color: rgba(231,238,252,.86);
-      font-size:.92rem;
-    }
-    .check i{color: var(--accent); margin-top: 2px}
-
-    /* Case studies */
-    .caseGrid{display:grid; grid-template-columns: repeat(2,1fr); gap:16px}
-    .case{
-      border-radius: var(--radius2);
-      border:1px solid rgba(148,163,184,.16);
-      background: rgba(255,255,255,.04);
-      padding: 18px;
-      position:relative;
-      overflow:hidden;
-    }
-    .case .meta{
-      display:flex; flex-wrap:wrap; gap:10px; align-items:center;
-      margin-top: 10px;
-      color: var(--muted2);
-      font-size:.9rem;
-    }
-    .metricRow{display:flex; flex-wrap:wrap; gap:10px; margin-top: 12px}
-    .metric{
-      border-radius: var(--radiusPill);
-      border:1px solid rgba(148,163,184,.16);
-      background: rgba(255,255,255,.03);
-      padding: 6px 10px;
-      font-size:.82rem;
-      color: rgba(231,238,252,.85);
-      display:inline-flex; gap:8px; align-items:center;
-    }
-    .metric i{color: var(--good)}
-
-    /* FAQ */
-    .faq{
-      max-width: 920px;
-      margin: 0 auto;
-    }
-    .qa{
-      border-radius: var(--radius2);
-      border:1px solid rgba(148,163,184,.16);
-      background: rgba(255,255,255,.03);
-      margin-bottom: 12px;
-      overflow:hidden;
-    }
-    .q{
-      display:flex; justify-content:space-between; align-items:center;
-      padding: 16px 18px;
-      cursor:pointer;
-      gap: 14px;
-    }
-    .q h4{font-size: 1.02rem; margin:0}
-    .toggle{
-      width:30px;height:30px;border-radius:999px;
-      border:1px solid rgba(148,163,184,.24);
-      display:flex;align-items:center;justify-content:center;
-      color: rgba(189,197,255,.95);
-      background: rgba(255,255,255,.02);
-      transition: transform .2s var(--ease), background .2s var(--ease);
-      flex-shrink:0;
-    }
-    .a{
-      padding: 0 18px;
-      max-height:0;
-      overflow:hidden;
-      transition: max-height .26s var(--ease), padding .26s var(--ease);
-    }
-    .qa.open .a{
-      max-height: 260px;
-      padding: 0 18px 16px 18px;
-    }
-    .qa.open .toggle{transform: rotate(45deg); background: rgba(109,94,252,.10)}
-
-    /* Contact */
-    .contactGrid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      align-items:start;
-    }
-    .contactCard{
-      border-radius: var(--radius2);
-      border:1px solid rgba(148,163,184,.16);
-      background: rgba(255,255,255,.04);
-      padding: 18px;
-      box-shadow: var(--shadow);
-    }
-    .contactRow{
-      display:flex; gap:12px; align-items:flex-start;
-      padding: 12px;
-      border-radius: 16px;
-      border:1px solid rgba(148,163,184,.14);
-      background: rgba(255,255,255,.03);
-      margin-top: 12px;
-    }
-    .cIcon{
-      width:40px;height:40px;border-radius: 14px;
-      background: rgba(245,158,11,.12);
-      border: 1px solid rgba(245,158,11,.22);
-      display:flex; align-items:center; justify-content:center;
-      color: rgba(255,211,128,.95);
-      flex-shrink:0;
-    }
-    .contactRow b{display:block; font-size: .95rem}
-    .contactRow a{color: rgba(231,238,252,.9); word-break: break-word}
-    .form .field{margin-top: 12px}
-    label{display:block; font-size:.84rem; color: rgba(231,238,252,.82); margin-bottom: 6px; font-weight:600}
-    input, select, textarea{
-      width:100%;
-      border-radius: 14px;
-      border:1px solid rgba(148,163,184,.22);
-      background: rgba(6,8,18,.55);
-      color: var(--text);
-      padding: 12px 12px;
-      font-size:.95rem;
-      outline:none;
-      transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
-    }
-    textarea{min-height: 120px; resize:vertical}
-    input:focus, select:focus, textarea:focus{
-      border-color: rgba(109,94,252,.65);
-      box-shadow: 0 0 0 3px rgba(109,94,252,.12);
-    }
-    .tiny{font-size:.82rem; color: var(--muted2); margin-top: 10px}
-
-    footer{
-      padding: 36px 0;
-      border-top: 1px solid rgba(148,163,184,.12);
-      color: var(--muted2);
-      background: rgba(0,0,0,.12);
-    }
-    .foot{
-      display:flex; flex-wrap:wrap; gap:12px;
-      align-items:center; justify-content:space-between;
-    }
-
-    /* Local strip */
-    .localStrip{
-      margin-top: 14px;
-      display:flex; flex-wrap:wrap; gap:8px;
-    }
-    .localPill{
-      padding: 6px 10px;
-      font-size:.78rem;
-      border-radius: 999px;
-      border:1px solid rgba(148,163,184,.18);
-      background: rgba(255,255,255,.03);
-      color: var(--muted2);
-    }
-
-    /* =========================
-       RESPONSIVE FIXES
-    ========================= */
-
-    /* Tablet and down: collapse nav links */
-    @media (max-width: 980px){
-      nav.links{display:none}
-      .menuBtn{display:inline-flex}
-      .brand{min-width:auto}
-
-      section{padding: 78px 0}
-      .hero{padding-top: 110px; padding-bottom: 64px}
-      .grid2{grid-template-columns:1fr; gap:18px}
-      .split{grid-template-columns:1fr}
-      .grid3{grid-template-columns:1fr}
-      .caseGrid{grid-template-columns:1fr}
-      .contactGrid{grid-template-columns:1fr}
-    }
-
-    /* Phone: reduce header clutter + improve spacing */
-    @media (max-width: 640px){
-      header{height:70px}
-      .nav{height:70px}
-
-      .pill{display:none}
-      .ctaRow .btnGhost{display:none} /* keep one main CTA + menu on phone */
-
-      .hero{padding-top: 100px}
-      .heroActions{
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .heroActions .btn{
-        width:100%;
-        justify-content:center;
-      }
-      .micro{
-        min-width: 0;
-        width:100%;
-        justify-content: center;
-        text-align:center;
-      }
-
-      .proofBar{
-        padding: 14px;
-        gap: 10px;
-      }
-      .proofRight{
-        width: 100%;
-        justify-content: flex-start;
-        gap: 10px 14px;
-      }
-
-      .miniGrid{grid-template-columns:1fr}
-      .card, .panel, .case, .contactCard{padding: 16px}
-
-      .q{padding: 14px 14px}
-      .a{padding: 0 14px}
-      .qa.open .a{padding: 0 14px 14px 14px}
-
-      .foot{
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    /* Very small phones */
-    @media (max-width: 380px){
-      .brand b{font-size: 1rem}
-      .brand small{font-size: .68rem}
-      .btn{padding: 12px 14px}
-    }
-  </style>
-</head>
-
-<body>
-  <!-- HEADER -->
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#top" aria-label="BorderCity Digital">
-        <div class="mark"><i class="fa-solid fa-city"></i></div>
-        <div>
-          <b>BorderCity Digital</b>
-          <small>Windsor • Web • SEO • Growth</small>
-        </div>
-      </a>
-
-      <nav class="links" aria-label="Primary">
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#why">Why Us</a>
-        <a href="#work">Work</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <div class="ctaRow">
-        <div class="pill"><i class="fa-solid fa-location-dot"></i> Windsor–Essex focused</div>
-        <a class="btn btnGhost" href="#contact"><i class="fa-regular fa-calendar"></i> Free consult</a>
-        <a class="btn btnPrimary" href="#contact"><i class="fa-solid fa-rocket"></i> Start a project</a>
-        <button class="menuBtn" id="menuBtn" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+          <h3>Conversion Copy</h3>
+          <p>Messaging that turns visitors into customers.</p>
+          <ul class="bullets">
+            <li>Service page copy that sells</li>
+            <li>Trust signals & FAQs</li>
+            <li>Offer + CTA optimization</li>
+          </ul>
+        </article>
       </div>
     </div>
-  </header>
+  </section>
 
-  <!-- MOBILE MENU -->
-  <div class="mobilePanel" id="mobilePanel">
-    <a href="#services">Services</a>
-    <a href="#process">Process</a>
-    <a href="#why">Why Us</a>
-    <a href="#work">Work</a>
-    <a href="#faq">FAQ</a>
-    <a href="#contact">Contact</a>
-  </div>
-
-  <!-- HERO -->
-  <main id="top" class="hero">
+  <!-- Process -->
+  <section id="process">
     <div class="container">
-      <div class="grid2">
+      <div class="sectionHead">
         <div>
-          <div class="tag">
-            <i class="fa-solid fa-bolt"></i>
-            Built for local leads, not vanity
-          </div>
+          <h2>Our simple process</h2>
+          <p>Clear steps, fast communication, and a site that’s ready to market from day one.</p>
+        </div>
+      </div>
 
-          <h1>
-            Windsor websites that <span class="gradText">turn visitors into calls</span>
-          </h1>
-          <p class="heroLead">
-            BorderCity Digital builds fast, modern websites for Windsor–Essex businesses —
-            with clean design, local SEO foundations, and a conversion-first layout that makes it easy to book, call, or request a quote.
+      <div class="split">
+        <div class="panel">
+          <h3 style="margin:0 0 8px; letter-spacing:-.2px;">Launch-ready in 4 steps</h3>
+          <p class="muted" style="margin:0;">
+            You’ll always know what’s happening, what you need to provide, and what comes next.
           </p>
 
-          <div class="heroActions">
-            <a class="btn btnPrimary" href="#contact">
-              <i class="fa-solid fa-comments"></i> Get a quote
-            </a>
-            <a class="btn btnGhost" href="#services">
-              <i class="fa-solid fa-layer-group"></i> View services
-            </a>
-            <div class="micro"><i class="fa-solid fa-check-circle"></i> Clear scope • fast timelines • simple communication</div>
-          </div>
-
-          <div class="proofBar">
-            <div class="proofLeft">
-              <span class="stars" aria-label="5 star quality">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              </span>
-              <span>Designed for Windsor services: contractors, clinics, restaurants, trades</span>
+          <div class="steps" role="list">
+            <div class="step" role="listitem">
+              <div class="num">1</div>
+              <div>
+                <strong>Discovery</strong>
+                <span>We learn your services, ideal customers, and what “a win” looks like.</span>
+              </div>
             </div>
-            <div class="proofRight">
-              <span><i class="fa-solid fa-gauge-high"></i> Fast on mobile</span>
-              <span><i class="fa-solid fa-shield-halved"></i> Secure + maintained</span>
-              <span><i class="fa-solid fa-magnifying-glass"></i> SEO-ready structure</span>
+            <div class="step" role="listitem">
+              <div class="num">2</div>
+              <div>
+                <strong>Design</strong>
+                <span>We create a clean layout with clear CTAs and a professional brand feel.</span>
+              </div>
+            </div>
+            <div class="step" role="listitem">
+              <div class="num">3</div>
+              <div>
+                <strong>Build + SEO</strong>
+                <span>Fast pages, mobile-first, basic on-page SEO and tracking setup.</span>
+              </div>
+            </div>
+            <div class="step" role="listitem">
+              <div class="num">4</div>
+              <div>
+                <strong>Launch + Improve</strong>
+                <span>We publish, test, and iterate based on real traffic and leads.</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <aside class="heroCard" aria-label="Project snapshot">
-          <div class="heroCardInner">
-            <div class="tag" style="border-color: rgba(245,158,11,.35); background: rgba(245,158,11,.10); color: rgba(255,221,160,.95)">
-              <i class="fa-solid fa-map"></i>
-              Windsor–Essex focus
-            </div>
+        <div class="panel">
+          <h3 style="margin:0 0 8px; letter-spacing:-.2px;">Perfect for service businesses</h3>
+          <p class="muted" style="margin:0 0 14px;">
+            Built to earn trust quickly and make it easy for customers to contact you.
+          </p>
 
-            <h3 style="margin-top:12px">What you get (every build)</h3>
-            <p class="soft">A premium local-business site that’s simple, fast, and built to convert.</p>
-
-            <div style="margin-top:14px; display:grid; gap:10px;">
-              <div style="display:flex; gap:10px; align-items:flex-start">
-                <i class="fa-solid fa-check" style="color:var(--good); margin-top:3px"></i>
-                <div><b style="color:var(--text)">Conversion-first structure</b><br><span class="soft">Clear CTA placement + lead capture sections</span></div>
+          <div class="card" style="margin:0; background: rgba(11,18,32,.35);">
+            <div style="display:flex; gap:10px; align-items:flex-start;">
+              <div class="miniIcon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 3l8 4v10l-8 4-8-4V7l8-4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                  <path d="M12 7v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
               </div>
-              <div style="display:flex; gap:10px; align-items:flex-start">
-                <i class="fa-solid fa-check" style="color:var(--good); margin-top:3px"></i>
-                <div><b style="color:var(--text)">Local SEO foundations</b><br><span class="soft">Service + Windsor area targeting built in</span></div>
+              <div>
+                <strong>Local trust signals</strong>
+                <div class="muted" style="font-size:13px; font-weight:650;">Reviews, service areas, credentials, and clear contact options.</div>
               </div>
-              <div style="display:flex; gap:10px; align-items:flex-start">
-                <i class="fa-solid fa-check" style="color:var(--good); margin-top:3px"></i>
-                <div><b style="color:var(--text)">Fast, modern build</b><br><span class="soft">Lightweight code + responsive layout</span></div>
-              </div>
-            </div>
-
-            <div class="miniGrid">
-              <div class="mini">
-                <b>4–6 weeks</b>
-                <small>Typical launch</small>
-              </div>
-              <div class="mini">
-                <b>2 revisions</b>
-                <small>Per phase</small>
-              </div>
-              <div class="mini">
-                <b>On-page SEO</b>
-                <small>Baseline included</small>
-              </div>
-              <div class="mini">
-                <b>Support</b>
-                <small>Ongoing options</small>
-              </div>
-            </div>
-
-            <div class="localStrip" aria-label="Local areas served">
-              <span class="localPill">Walkerville</span>
-              <span class="localPill">South Windsor</span>
-              <span class="localPill">Tecumseh</span>
-              <span class="localPill">LaSalle</span>
-              <span class="localPill">Amherstburg</span>
-              <span class="localPill">Riverside</span>
             </div>
           </div>
+
+          <div class="divider" aria-hidden="true"></div>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <span class="pill">Contractors</span>
+            <span class="pill">Clinics</span>
+            <span class="pill">Real estate</span>
+            <span class="pill">Cleaning</span>
+            <span class="pill">Trades</span>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn primary" href="#contact">Request a Quote</a>
+            <a class="btn" href="#pricing" style="margin-left:8px;">See Pricing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing">
+    <div class="container">
+      <div class="sectionHead">
+        <div>
+          <h2>Simple packages</h2>
+          <p>Start with a strong website, then add monthly growth when you’re ready.</p>
+        </div>
+      </div>
+
+      <div class="pricing">
+        <div class="priceCard">
+          <div class="priceTop">
+            <div>
+              <h3>Starter Website</h3>
+              <p>Clean 1–3 page site built to look credible and capture leads.</p>
+            </div>
+          </div>
+          <div class="price">$1,500 <small>from</small></div>
+          <ul class="priceList">
+            <li>Homepage + Service page</li>
+            <li>Mobile-first design</li>
+            <li>Contact form + CTA setup</li>
+            <li>Basic SEO setup</li>
+          </ul>
+          <a class="btn" href="#contact">Get Started</a>
+        </div>
+
+        <div class="priceCard featured">
+          <div class="ribbon">Most Popular</div>
+          <div class="priceTop">
+            <div>
+              <h3>Growth Website</h3>
+              <p>Best for local businesses that want SEO-ready pages and trust signals.</p>
+            </div>
+          </div>
+          <div class="price">$2,900 <small>from</small></div>
+          <ul class="priceList">
+            <li>Up to 5 pages (services + locations)</li>
+            <li>Conversion-focused copy structure</li>
+            <li>Google Analytics + Search Console setup</li>
+            <li>Speed + on-page SEO improvements</li>
+          </ul>
+          <a class="btn primary" href="#contact">Book a Call</a>
+        </div>
+
+        <div class="priceCard">
+          <div class="priceTop">
+            <div>
+              <h3>Monthly SEO</h3>
+              <p>Ongoing optimization, content, and reporting to grow rankings.</p>
+            </div>
+          </div>
+          <div class="price">$500 <small>/mo</small></div>
+          <ul class="priceList">
+            <li>Google Business Profile updates</li>
+            <li>On-page improvements</li>
+            <li>Content + service area support</li>
+            <li>Monthly report + next steps</li>
+          </ul>
+          <a class="btn" href="#contact">Ask About SEO</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section id="work">
+    <div class="container">
+      <div class="sectionHead">
+        <div>
+          <h2>Sample work (mock portfolio)</h2>
+          <p>Use these as placeholders until you add real projects and testimonials.</p>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <article class="card">
+          <h3 style="margin-top:0;">Windsor Roofing Co.</h3>
+          <p>Homepage redesign + quote form + service areas.</p>
+          <ul class="bullets">
+            <li>Clear above-the-fold offer</li>
+            <li>Trust badges + reviews</li>
+            <li>Fast contact options</li>
+          </ul>
+          <div class="divider"></div>
+          <span class="pill">Design • Build • Copy</span>
+        </article>
+
+        <article class="card">
+          <h3 style="margin-top:0;">Local Cleaning Service</h3>
+          <p>Local SEO pages + Google Business Profile cleanup.</p>
+          <ul class="bullets">
+            <li>Service + location pages</li>
+            <li>FAQ + pricing section</li>
+            <li>SEO-friendly structure</li>
+          </ul>
+          <div class="divider"></div>
+          <span class="pill">SEO • GBP • Pages</span>
+        </article>
+
+        <article class="card">
+          <h3 style="margin-top:0;">Clinic Landing Page</h3>
+          <p>Conversion landing page for appointments and phone calls.</p>
+          <ul class="bullets">
+            <li>Appointment CTA</li>
+            <li>Form + call tracking</li>
+            <li>Trust-first layout</li>
+          </ul>
+          <div class="divider"></div>
+          <span class="pill">Landing • Conversion</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section aria-label="Testimonials">
+    <div class="container">
+      <div class="sectionHead">
+        <div>
+          <h2>What clients say (placeholder)</h2>
+          <p>Replace these with real reviews after your first 2–3 clients.</p>
+        </div>
+      </div>
+
+      <div class="testimonials">
+        <div class="quote">
+          <p>“The site looks premium and we started getting calls within the first week.”</p>
+          <div class="person"><div class="avatar" aria-hidden="true"></div> Alex • Service Business Owner</div>
+        </div>
+        <div class="quote">
+          <p>“Clean design, fast turnaround, and the messaging is exactly what we needed.”</p>
+          <div class="person"><div class="avatar" aria-hidden="true"></div> Sam • Contractor</div>
+        </div>
+        <div class="quote">
+          <p>“BorderCity made everything simple. The new pages improved our Google visibility.”</p>
+          <div class="person"><div class="avatar" aria-hidden="true"></div> Jamie • Local Provider</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="sectionHead">
+        <div>
+          <h2>Get a free audit</h2>
+          <p>Send your website (or idea) and we’ll reply with quick, practical improvements.</p>
+        </div>
+      </div>
+
+      <div class="contact">
+        <div class="panel">
+          <h3 style="margin:0 0 6px;">Contact BorderCity Digital</h3>
+          <p class="muted" style="margin:0;">This form is a mockup. Hook it to your backend/email service later.</p>
+
+          <form action="#" method="post">
+            <div class="formRow">
+              <div>
+                <label for="name">Full name</label>
+                <input id="name" name="name" placeholder="Your name" required />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@company.com" required />
+              </div>
+            </div>
+
+            <div class="formRow">
+              <div>
+                <label for="phone">Phone (optional)</label>
+                <input id="phone" name="phone" placeholder="(519) 555-1234" />
+              </div>
+              <div>
+                <label for="service">What do you need?</label>
+                <select id="service" name="service">
+                  <option>Website design</option>
+                  <option>Website redesign</option>
+                  <option>Local SEO</option>
+                  <option>Landing page</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="website">Your website (optional)</label>
+              <input id="website" name="website" placeholder="https://example.com" />
+              <div class="hint">If you don’t have one yet, just leave it blank.</div>
+            </div>
+
+            <div>
+              <label for="message">Project details</label>
+              <textarea id="message" name="message" placeholder="Tell us what you do, your service area, and what you want your site to achieve."></textarea>
+            </div>
+
+            <button class="btn primary" type="submit">Send Request</button>
+            <div class="hint">Tip: add a calendar link here later (Calendly / Google Calendar booking).</div>
+          </form>
+        </div>
+
+        <aside class="miniCard" aria-label="Contact details">
+          <div class="contactItem">
+            <div class="miniIcon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M6.5 3.5h11A2.5 2.5 0 0 1 20 6v12a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 18V6A2.5 2.5 0 0 1 6.5 3.5Z" stroke="currentColor" stroke-width="1.8"/>
+                <path d="m6 7 6 4 6-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Email</strong>
+              <span>hello@bordercitydigital.com (placeholder)</span>
+            </div>
+          </div>
+
+          <div class="contactItem">
+            <div class="miniIcon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 21s7-4.35 7-11a7 7 0 1 0-14 0c0 6.65 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M12 12.2a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Z" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Location</strong>
+              <span>Windsor, Ontario • Remote services</span>
+            </div>
+          </div>
+
+          <div class="contactItem">
+            <div class="miniIcon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M12 5v14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Next step</strong>
+              <span>Connect your domain + hosting, then publish this layout.</span>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <a class="btn" href="#pricing">View packages</a>
+          <a class="btn primary" href="#top">Back to top</a>
         </aside>
       </div>
     </div>
-  </main>
+  </section>
 
-  <!-- SERVICES -->
-  <section id="services">
+  <footer>
     <div class="container">
-      <div class="sectionHead">
-        <div class="titleWrap">
-          <div class="kicker">Services</div>
-          <h2>Everything you need to look credible and get found locally</h2>
-          <p>
-            A website is only “pretty” until it produces leads. We build your foundation (site + SEO structure)
-            and offer simple monthly support so your online presence keeps improving.
-          </p>
-        </div>
+      <div class="foot">
         <div>
-          <a class="btn btnGhost" href="#contact"><i class="fa-solid fa-phone"></i> Talk to Sales</a>
+          <strong style="color:rgba(233,238,252,.92);">BorderCity Digital</strong>
+          <div class="muted">© <span id="y"></span> • Windsor, Ontario • Web Design & Digital Marketing</div>
+        </div>
+        <div class="footLinks">
+          <a href="#services">Services</a>
+          <a href="#process">Process</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
         </div>
       </div>
+    </div>
+  </footer>
 
-      <div class="grid3">
-        <div class="card">
-          <div class="cardTop">
-            <div class="icon"><i class="fa-solid fa-code"></i></div>
-            <div class="badge">Web Design</div>
-          </div>
-          <h3>Custom Website Build</h3>
-          <p>Modern, fast, and conversion-focused — designed for real local customers (mobile-first).</p>
-          <ul class="list">
-            <li><i class="fa-solid fa-check"></i> Clear hero + CTA layout</li>
-            <li><i class="fa-solid fa-check"></i> Service sections + trust signals</li>
-            <li><i class="fa-solid fa-check"></i> Contact & quote capture</li>
-            <li><i class="fa-solid fa-check"></i> Speed + responsive build</li>
-          </ul>
-          <p style="margin-top:12px" class="soft"><b style="color:var(--text)">Best for:</b> local service businesses that need more calls & inquiries.</p>
-        </div>
-
-        <div class="card">
-          <div class="cardTop">
-            <div class="icon" style="background: rgba(245,158,11,.12); border-color: rgba(245,158,11,.22); color: rgba(255,221,160,.95)">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-            <div class="badge">SEO</div>
-          </div>
-          <h3>Local SEO Foundations</h3>
-          <p>We structure your site so Google understands what you do and where you serve.</p>
-          <ul class="list">
-            <li><i class="fa-solid fa-check"></i> Title/H1 structure + on-page SEO</li>
-            <li><i class="fa-solid fa-check"></i> Service-area targeting (Windsor–Essex)</li>
-            <li><i class="fa-solid fa-check"></i> Internal linking strategy</li>
-            <li><i class="fa-solid fa-check"></i> Schema basics (where applicable)</li>
-          </ul>
-          <p style="margin-top:12px" class="soft"><b style="color:var(--text)">Best for:</b> businesses that want consistent local discovery.</p>
-        </div>
-
-        <div class="card">
-          <div class="cardTop">
-            <div class="icon" style="background: rgba(34,197,94,.12); border-color: rgba(34,197,94,.22); color: rgba(180,255,210,.95)">
-              <i class="fa-solid fa-screwdriver-wrench"></i>
-            </div>
-            <div class="badge">Management</div>
-          </div>
-          <h3>Website + Marketing Management</
-```
-```
+  <script>
+    // Tiny convenience: show current year (safe, optional)
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
