@@ -76,6 +76,7 @@
       align-items:center;
       justify-content:space-between;
       gap:18px;
+      margin-bottom:2px;
       /* delay nav move slightly so topBar begins collapsing first */
       transition: transform 420ms var(--ease) 80ms;
       transform: translateY(0);
@@ -261,7 +262,7 @@
     }
     .heroLead{
       margin-top: 14px;
-      max-width: 54ch;
+      max-width: 59ch;
       font-size: 1.02rem;
     }
     .heroActions{
@@ -303,15 +304,15 @@
       margin-top: 14px;
     }
     .mini{
-      border-radius: 14px;
+      border-radius: 10px;
       border:1px solid rgba(148,163,184,.16);
       background: rgba(255,255,255,.03);
-      padding: 12px 12px;
+      padding: 8px 8px;
     }
     .mini b{
       display:block;
       color: var(--text);
-      font-size: 1.05rem;
+      font-size: 1rem;
       letter-spacing:-.02em;
     }
     .mini small{
