@@ -1,6 +1,19 @@
   // Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // Scroll nav background (apply to header for full-width background)
+    window.addEventListener('scroll', () => {
+      const headerEl = document.querySelector('header');
+      if (!headerEl) return;
+      if (window.scrollY > 0) {
+        headerEl.classList.add('scrolled');
+        document.body.classList.add('header-scrolled');
+      } else {
+        headerEl.classList.remove('scrolled');
+        document.body.classList.remove('header-scrolled');
+      }
+    });
+
     // Mobile menu
     const menuBtn = document.getElementById("menuBtn");
     const mobilePanel = document.getElementById("mobilePanel");

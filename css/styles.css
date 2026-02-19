@@ -1,4 +1,7 @@
     :root{
+      --topbar-height:44px;
+      --nav-height:74px;
+      --header-full-height: calc(var(--topbar-height) + var(--nav-height));
       --bg0:#060812;
       --bg1:#0b1020;
       --bg2:#0f1733;
@@ -18,7 +21,7 @@
       --radius2:22px;
       --radiusPill:999px;
       --ease: cubic-bezier(.2,.8,.2,1);
-      --max:1180px;
+      --max:1200px;
     }
 
     *{box-sizing:border-box}
@@ -48,18 +51,75 @@
     /* Top Nav */
     header{
       position:fixed; top:0; left:0; right:0;
-      height:74px;
       z-index:999;
+      transition: background 360ms var(--ease), box-shadow 360ms var(--ease);
+    }
+    .topBar{
       background: rgba(6,8,18,.72);
       backdrop-filter: blur(16px);
       border-bottom:1px solid rgba(148,163,184,.12);
+      padding:8px 0;
+      position:relative;
+      z-index:3;
+      transition: transform 360ms var(--ease), opacity 320ms var(--ease);
+        min-height:var(--topbar-height);
+        align-items:center;
+    }
+    .topBar .container{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
     }
     .nav{
-      height:74px;
+      height:var(--nav-height);
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:18px;
+      /* delay nav move slightly so topBar begins collapsing first */
+      transition: transform 420ms var(--ease) 80ms;
+      transform: translateY(0);
+    }
+    header.scrolled{
+      height: 80px;
+      background: rgba(6,8,18,.72);
+      backdrop-filter: blur(16px);
+      border-bottom:1px solid rgba(148,163,184,.12);
+      box-shadow: 0 8px 30px rgba(0,0,0,.35);
+      transition: ease-in-out;
+    }
+
+    /* Animated border-fill accent (logo colors) that grows left→right */
+    header::after{
+      content:"";
+      position:absolute;
+      left:0; right:0; bottom:0;
+      height:4px;
+      background: linear-gradient(90deg, rgba(109,94,252,1), rgba(245,158,11,1));
+      transform-origin:left center;
+      transform: scaleX(0);
+      transition: transform 520ms var(--ease), opacity 360ms var(--ease);
+      opacity:0;
+      z-index:2;
+      pointer-events:none;
+    }
+    header.scrolled::after{
+      transform: scaleX(1);
+      opacity:1;
+    }
+
+    /* Collapse topBar smoothly when header is scrolled (no display:none) */
+    header.scrolled .topBar{
+      max-height:0;
+      padding-top:0;
+      padding-bottom:0;
+      opacity:0;
+      transform: translateY(-6px);
+      pointer-events:none;
+    }
+    /* Move main nav up to occupy topBar space when scrolled */
+    header.scrolled .nav{
+      transform: translateY(calc(-1 * var(--topbar-height)));
     }
 
     .brand{
@@ -84,6 +144,7 @@
       color:rgba(231,238,252,.78);
       padding:10px 0;
       position:relative;
+      white-space: nowrap;
     }
     .links a:after{
       content:"";
@@ -141,12 +202,16 @@
     .mobilePanel{
       display:none;
       position:fixed;
-      top:74px; left:0; right:0;
+      top: calc(var(--header-full-height) + 12px);
+      left:0; right:0;
       background: rgba(6,8,18,.92);
       backdrop-filter: blur(16px);
       border-bottom:1px solid rgba(148,163,184,.12);
-      padding:18px 20px 22px;
+      padding:30px 26px 22px;
+      transition: top 320ms var(--ease);
     }
+    /* mobile-only CTA: hidden by default, enabled at <=520px */
+    .mobilePanel .mobile-cta{display:none}
     .mobilePanel a{
       display:block;
       padding:12px 0;
@@ -154,10 +219,16 @@
       border-bottom:1px solid rgba(148,163,184,.10);
     }
     .mobilePanel a:last-child{border-bottom:none}
+    /* When header is scrolled we move the mobile panel up to attach to the main nav */
+    body.header-scrolled .mobilePanel{
+      top: calc(var(--nav-height) + 5px);
+    }
 
     /* Sections */
     section{padding: 92px 0}
-    .hero{padding-top: 118px}
+    .hero{padding-top: 130px}
+      /* When header-scrolled is active, reduce hero padding so main nav sits at top */
+      body.header-scrolled .hero{padding-top: calc(var(--nav-height) + 12px)}
     .grid2{
       display:grid;
       grid-template-columns: 1.25fr .95fr;
@@ -537,12 +608,30 @@
       .contactGrid{grid-template-columns:1fr}
       header .links{display:none}
       .menuBtn{display:inline-flex}
-      .brand{min-width:auto}
-      section{padding: 78px 0}
+     /*  .brand{min-width:auto} */
+      /* .btnGhost{display:none} */
+      section{padding: 110px 0}
     }
     @media (max-width: 520px){
       .pill{display:none}
       .miniGrid{grid-template-columns:1fr}
       .proofBar{justify-content:flex-start}
       .btn{width:100%; justify-content:center}
+      .btnGhost{align-items: center;}
+      /* Move CTA into hamburger: hide desktop primary CTA on very small screens */
+      .ctaRow .btnPrimary{display:none}
+
+      /* Style the mobile CTA inside the panel so it reads like the desktop CTA */
+      .mobilePanel .mobile-cta{
+        display:block;
+        margin-top:12px;
+        padding:12px 14px;
+        border-radius:12px;
+        background: linear-gradient(135deg, var(--primary), var(--primary2));
+        color: #fff;
+        box-shadow: 0 12px 36px rgba(109,94,252,.24);
+        text-align:center;
+      }
+      .mobilePanel .mobile-cta i{margin-right:8px}
+      .mobilePanel a.mobile-cta{border-bottom:none}
     }
