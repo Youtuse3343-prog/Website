@@ -329,7 +329,7 @@
       </div>
 
       <div class="split">
-        <div class="panel">
+        <div class="panel" style="padding-top: 10px;">
           <h3>What we do differently</h3>
           <p class="soft">Not buzzwords — actual decisions that affect leads.</p>
           <div class="checkGrid">
@@ -350,7 +350,7 @@
             <li><i class="fa-solid fa-check"></i> Pages not structured for local SEO</li>
           </ul>
 
-          <div style="margin-top:14px">
+          <div style="margin-top:8px">
             <a class="btn btnPrimary" href="#contact"><i class="fa-solid fa-arrow-right"></i> Let’s fix it</a>
           </div>
         </div>
@@ -490,6 +490,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -546,7 +547,8 @@
           <p class="soft">This form is front-end only. Hook it up later to a backend/email service.</p>
 
           <form id="leadForm">
-            <div class="field">
+            <div class="details">
+              <div class="field">
               <label for="name">Full name</label>
               <input id="name" name="name" type="text" placeholder="Your name" required />
             </div>
@@ -555,7 +557,9 @@
               <label for="email">Email</label>
               <input id="email" name="email" type="email" placeholder="you@company.com" required />
             </div>
+            </div>
 
+           <div class="business_details">
             <div class="field">
               <label for="business">Business</label>
               <input id="business" name="business" type="text" placeholder="Business name" />
@@ -571,13 +575,14 @@
                 <option value="combo">Website + SEO</option>
               </select>
             </div>
+           </div>
 
             <div class="field">
               <label for="msg">What are you trying to achieve?</label>
               <textarea id="msg" name="msg" placeholder="Example: More calls, better credibility, rank in Windsor for [service]."></textarea>
             </div>
 
-            <button class="btn btnPrimary" type="submit" style="width:100%; justify-content:center">
+            <button class="btn btnPrimary FormSubmitButton" type="submit">
               <i class="fa-solid fa-paper-plane"></i> Send message
             </button>
 
