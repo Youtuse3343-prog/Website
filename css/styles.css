@@ -206,7 +206,10 @@
     }
     
     .FormSubmitButton{
-      margin-top: 14px;
+      margin-top: 8px;
+    }
+    .btn-customize{
+      margin-top: 5px;
     }
     /* Mobile menu */
     .mobilePanel{
@@ -558,7 +561,7 @@
     .contactRow{
       display:flex; gap:12px; align-items:flex-start;
       padding: 12px;
-      border-radius: 16px;
+      border-radius: 12px;
       border:1px solid rgba(148,163,184,.14);
       background: rgba(255,255,255,.03);
       margin-top: 12px;
@@ -591,7 +594,8 @@
     }
     textarea{min-height: 120px; resize:vertical}
     input:focus, select:focus, textarea:focus{
-      border-color: rgba(109,94,252,.65);
+      border-color: rgba(245,158,11,1);
+      /* border-color: linear-gradient(90deg, rgba(109,94,252,1), rgba(245,158,11,1)); */
       box-shadow: 0 0 0 3px rgba(109,94,252,.12);
     }
     .tiny{font-size:.82rem; color: var(--muted2); margin-top: 10px}
