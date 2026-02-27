@@ -247,6 +247,8 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+
     
     }
       /* When header-scrolled is active, reduce hero padding so main nav sits at top */
