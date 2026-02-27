@@ -52,3 +52,77 @@
       alert("Thanks! Your message is ready to be wired to email. For now, please email Sales@bordercitydigital.com.");
       leadForm.reset();
     });
+
+// Testimonials Carousel
+document.addEventListener('DOMContentLoaded', () => {
+  const carousel = document.querySelector('.carousel-wrapper');
+  const items = document.querySelectorAll('.review-item');
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+  const nextBtn = document.querySelector('.carousel-btn.next');
+  const dotsContainer = document.querySelector('.carousel-dots');
+
+  if (!carousel || items.length === 0) return;
+
+  let currentIndex = 0;
+  const totalItems = items.length;
+  let itemsPerView = 3;
+
+  // Function to update items per view based on screen size
+  function updateItemsPerView() {
+    if (window.innerWidth <= 620) {
+      itemsPerView = 1;
+    } else if (window.innerWidth <= 980) {
+      itemsPerView = 2;
+    } else {
+      itemsPerView = 3;
+    }
+  }
+
+  updateItemsPerView();
+  window.addEventListener('resize', updateItemsPerView);
+
+  // Create dots
+  for (let i = 0; i < Math.ceil(totalItems / itemsPerView); i++) {
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goToSlide(i));
+    dotsContainer.appendChild(dot);
+  }
+
+  const dots = document.querySelectorAll('.dot');
+
+  function updateCarousel() {
+    const translateX = -currentIndex * (100 / itemsPerView);
+    carousel.style.transform = `translateX(${translateX}%)`;
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentIndex);
+    });
+  }
+
+  function goToSlide(index) {
+    currentIndex = index;
+    updateCarousel();
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % Math.ceil(totalItems / itemsPerView);
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + Math.ceil(totalItems / itemsPerView)) % Math.ceil(totalItems / itemsPerView);
+    updateCarousel();
+  }
+
+  nextBtn.addEventListener('click', nextSlide);
+  prevBtn.addEventListener('click', prevSlide);
+
+  // Auto-slide
+  let autoSlide = setInterval(nextSlide, 5000);
+
+  // Pause on hover
+  const carouselContainer = document.querySelector('.carousel');
+  carouselContainer.addEventListener('mouseenter', () => clearInterval(autoSlide));
+  carouselContainer.addEventListener('mouseleave', () => autoSlide = setInterval(nextSlide, 5000));
+});
