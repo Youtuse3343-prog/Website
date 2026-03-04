@@ -160,6 +160,7 @@
     .links a:hover:after{width:18px}
 
     .ctaRow{display:flex; align-items:center; gap:10px}
+    #sm-free-consultation{display:none};
     .pill{
       font-size:.78rem;
       padding:6px 10px;
@@ -751,6 +752,7 @@
       .btnGhost{align-items: center;}
       /* Move CTA into hamburger: hide desktop primary CTA on very small screens */
       .ctaRow .btnPrimary{display:none}
+      #sm-free-consultation{display:block; text-align: center;}
 
       /* Style the mobile CTA inside the panel so it reads like the desktop CTA */
       .mobilePanel .mobile-cta{
