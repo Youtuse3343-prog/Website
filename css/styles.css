@@ -467,7 +467,6 @@
     /* Split section */
     .split{
       display:grid;
-      /* grid-template-columns: 1.05fr .95fr; */
       grid-template-columns:0.9fr 0.95fr;
       gap: 18px;
       align-items: start;
@@ -475,8 +474,7 @@
     .panel{
       border-radius: var(--radius2);
       border:1px solid rgba(148,163,184,.16);
-      /* background: rgba(255,255,255,.03); */
-      padding: 18px;
+      padding: 18px 10px;
     }
     .panel h3{margin-bottom: 6px}
     .checkGrid{display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top: 24px}
@@ -767,6 +765,78 @@
       }
       .mobilePanel .mobile-cta i{margin-right:8px}
       .mobilePanel a.mobile-cta{border-bottom:none}
+    }
+
+    /* Extra small screens (below 400px) */
+    @media (max-width: 400px){
+      .container{padding:0 14px}
+      
+      /* Reduce header brand width */
+      .brand{min-width:auto; gap:8px}
+      .brand b{font-size:0.9rem}
+      .brand small{font-size:0.6rem; letter-spacing:.12em}
+      .mark{width:36px; height:36px; border-radius:10px}
+      
+      /* Hero section adjustments */
+      .hero{padding-top:100px}
+      .hero h1{font-size: clamp(1.8rem, 5vw, 2.5rem); line-height:1.1}
+      .tag{padding:6px 10px; font-size:.7rem}
+      .heroLead{font-size:0.92rem; max-width:100%; margin-top:10px}
+      
+      /* Button fixes */
+      .btn{padding:10px 14px; font-size:.85rem; gap:6px}
+      .btn i{font-size:0.9rem}
+      .heroActions{gap:12px; margin-top:16px}
+      .micro{font-size:.78rem; gap:6px}
+      
+      /* Section padding */
+      section{padding:60px 0}
+      .sectionHead{flex-direction:column; align-items:flex-start; gap:12px; margin-bottom:16px}
+      .sectionHead h2{font-size:clamp(1.5rem, 4vw, 2rem)}
+      .sectionHead p{font-size:0.9rem}
+      
+      /* Grid adjustments */
+      .grid3{gap:12px}
+      .check{padding:10px; gap:8px}
+      .checkGrid{gap:12px}
+      
+      /* Card adjustments */
+      .card{padding:14px}
+      .card-1{width:100%; padding:6px}
+      .card-1 h4{font-size:0.95rem; margin-top:8px}
+      .card-1 p{font-size:0.87rem; margin-top:6px}
+      
+      /* Contact form */
+      .contactGrid{gap:30px}
+      .details, .business_details{grid-template-columns:1fr; gap:8px}
+      label{font-size:12px; margin-bottom:8px}
+      input, select, textarea{padding:10px 10px; font-size:0.9rem}
+      textarea{min-height:100px}
+      
+      /* FAQ section */
+      .faq-wrapper{gap:20px; flex-direction:column}
+      .qa{margin-bottom:10px}
+      .q{padding:12px 14px; gap:10px}
+      .q h4{font-size:0.95rem}
+      .a{padding:0 14px !important}
+      
+      /* Work cards */
+      .work-cards{gap:15px; margin-top:15px}
+      .work-cards img{width:100%; max-width:280px}
+      
+      /* Testimonials */
+      .review-content{padding:20px; border-radius:10px}
+      .review-content p{font-size:0.9rem; margin-bottom:15px}
+      .carousel-btn{width:36px; height:36px; font-size:16px}
+      
+      /* Footer */
+      .foot{flex-direction:column; gap:8px; text-align:center}
+      .footer-logo-text{font-size:0.75rem}
+      .rights-reserved{font-size:0.78rem}
+      
+      /* Local strip pills */
+      .localStrip{gap:6px}
+      .localPill{font-size:0.7rem; padding:5px 8px}
     }
     
 
